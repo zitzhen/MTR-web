@@ -59,9 +59,37 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
-const cityName = ref('')
+// Use useAsyncData with correct path handling for server-side
+const { data: configData } = await useAsyncData('config', async () => {
+  try {
+    // For server-side, we need to fetch from the public directory directly
+    if (process.server) {
+      // Running on server - access file directly
+      const fs = await import('fs')
+      const path = await import('path')
+      const configPath = path.resolve(process.cwd(), 'public', 'configuration.json')
+      if (fs.existsSync(configPath)) {
+        const configFile = fs.readFileSync(configPath, 'utf-8')
+        return JSON.parse(configFile)
+      } else {
+        console.error('Configuration file does not exist at:', configPath)
+        return { city_name: 'Error' }
+      }
+    } else {
+      // Running on client - use $fetch
+      const config = await $fetch('/configuration.json')
+      return config
+    }
+  } catch (error) {
+    console.error('Failed to load configuration:', error)
+    return { city_name: 'Error' }
+  }
+})
+
+const cityName = configData.value?.city_name || 'Error'
+
 const currentLanguage = ref('中文')
 const languages = ref([
   { code: '日本語', text: '日本語' },
@@ -99,26 +127,11 @@ const changeLanguage = (langCode) => {
   currentLanguage.value = langCode
 }
 
-const loadConfiguration = async () => {
-  try {
-    const response = await fetch('/configuration.json')
-    if (response.ok) {
-      const config = await response.json()
-      cityName.value = config.city_name;
-    } else {
-      console.error('Failed to load configuration:', response.status)
-    }
-  } catch (error) {
-    console.error('Error loading configuration:', error)
-  }
-}
-
-onMounted(async () => {
-  await loadConfiguration()
+// Update time every second after mounting
+if (process.client) {
   updateDateTime()
-  // Update time every second
   setInterval(updateDateTime, 1000)
-})
+}
 </script>
 
 <style>
