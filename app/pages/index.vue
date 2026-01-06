@@ -169,12 +169,13 @@ body {
 }
 
 .mtr-website {
-  max-width: 400px;
+  max-width: 1200px; /* 增加PC端最大宽度 */
   margin: 0 auto;
   background-color: white;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* 添加阴影提升PC端视觉效果 */
 }
 
 /* Header styles */
@@ -357,7 +358,118 @@ body {
   background-color: var(--arrow-btn-hover-color, #00388a); /* Lightened primary color with fallback */
 }
 
-/* Mobile responsiveness */
+/* Tablet responsiveness */
+@media (min-width: 481px) and (max-width: 768px) {
+  .mtr-website {
+    max-width: 95%;
+  }
+  
+  .logo-title {
+    font-size: 26px;
+  }
+  
+  .logo-circle {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .welcome-text {
+    font-size: 15px;
+  }
+}
+
+/* PC responsiveness */
+@media (min-width: 769px) {
+  .mtr-website {
+    max-width: 90%;
+    margin: 20px auto;
+  }
+  
+  .header {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .banner {
+    padding: 15px 25px;
+  }
+  
+  .date-time {
+    font-size: 14px;
+  }
+  
+  .lang-btn {
+    font-size: 14px;
+    padding: 5px 12px;
+  }
+  
+  .logo-section {
+    padding: 40px 15px;
+  }
+  
+  .logo-circle {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .logo-image {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .logo-title {
+    font-size: 32px;
+    margin: 15px 0 5px;
+  }
+  
+  .logo-subtitle {
+    font-size: 18px;
+  }
+  
+  .notification-box {
+    margin: 20px 30px;
+    padding: 20px;
+  }
+  
+  .notification-header {
+    font-size: 18px;
+  }
+  
+  .notification-content {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .welcome-card {
+    margin: 20px 30px;
+    padding: 30px;
+  }
+  
+  .welcome-title {
+    font-size: 22px;
+  }
+  
+  .welcome-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .navigation-arrows {
+    margin: 30px 0 40px;
+    gap: 40px;
+  }
+  
+  .arrow-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+}
+
+/* Mobile responsiveness - 保持原有移动端样式 */
 @media (max-width: 480px) {
   .mtr-website {
     max-width: 100%;
