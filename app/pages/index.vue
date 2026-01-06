@@ -4,7 +4,7 @@
     <header class="header">
       <div class="header-content">
         <span class="close-btn">X</span>
-        <h1 class="title">{{ city_name}}交通局 (Minecraft...)</h1>
+        <h1 class="title">{{ cityName }}交通局 (Minecraft...)</h1>
       </div>
     </header>
 
@@ -30,15 +30,15 @@
       <div class="logo-circle">
         <div class="train-icon"></div>
       </div>
-      <h2 class="logo-title">{{ city_name}}交通局</h2>
-      <p class="logo-subtitle">{{ city_name}}交通局</p>
+      <h2 class="logo-title">{{ cityName }}交通局</h2>
+      <p class="logo-subtitle">{{ cityName }}交通局</p>
     </div>
 
     <!-- Notification box -->
     <div class="notification-box">
       <div class="notification-header">通知</div>
       <div class="notification-content">
-        本网站是虚构城市"{{ city_name}}"的交通信息网站，所有内容均为虚构。
+        本网站是虚构城市"{{ cityName }}"的交通信息网站，所有内容均为虚构。
       </div>
     </div>
 
@@ -46,7 +46,7 @@
     <div class="welcome-card">
       <h3 class="welcome-title">欢迎访问</h3>
       <p class="welcome-text">
-        欢迎访问{{ city_name}}交通局官方网站。本网站为您提供{{ city_name}}地铁线路的各类信息。请从以下菜单中选择您需要的服务。
+        欢迎访问{{ cityName }}交通局官方网站。本网站为您提供{{ cityName }}地铁线路的各类信息。请从以下菜单中选择您需要的服务。
       </p>
     </div>
 
@@ -61,6 +61,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+const cityName = ref('')
 const currentLanguage = ref('中文')
 const languages = ref([
   { code: '日本語', text: '日本語' },
@@ -98,7 +99,22 @@ const changeLanguage = (langCode) => {
   currentLanguage.value = langCode
 }
 
-onMounted(() => {
+const loadConfiguration = async () => {
+  try {
+    const response = await fetch('/configuration.json')
+    if (response.ok) {
+      const config = await response.json()
+      cityName.value = config.city_name;
+    } else {
+      console.error('Failed to load configuration:', response.status)
+    }
+  } catch (error) {
+    console.error('Error loading configuration:', error)
+  }
+}
+
+onMounted(async () => {
+  await loadConfiguration()
   updateDateTime()
   // Update time every second
   setInterval(updateDateTime, 1000)
