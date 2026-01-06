@@ -28,7 +28,7 @@
     <!-- Logo section -->
     <div class="logo-section">
       <div class="logo-circle">
-        <div class="train-icon"></div>
+        <img src="/LOGO.jpg" alt="Logo" class="logo-image" />
       </div>
       <h2 class="logo-title">{{ cityName }}交通局</h2>
       <p class="logo-subtitle">{{ cityName }}交通局</p>
@@ -256,43 +256,21 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
+  background-color: var(--primary-color, #0047AB);
   margin: 0 auto 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
-.train-icon {
-  width: 60px;
-  height: 40px;
-  background-color: #f0f0f0;
-  position: relative;
-  border-radius: 5px;
-}
-
-.train-icon::before {
-  /* Train front */
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: -5px;
-  width: 15px;
-  height: 20px;
-  background-color: #d0d0d0;
-  border-radius: 3px 0 0 3px;
-}
-
-.train-icon::after {
-  /* Train window */
-  content: '';
-  position: absolute;
-  top: 15px;
-  left: 5px;
-  width: 20px;
-  height: 10px;
-  background-color: #87CEEB;
+.logo-image {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  max-width: 80px;
+  max-height: 80px;
 }
 
 .logo-title {
