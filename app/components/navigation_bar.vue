@@ -180,20 +180,29 @@ const toggleMobileMenu = () => {
 </script>
 
 <style scoped>
-/* Navigation Bar styles - iOS 26 */
+/* Navigation Bar styles - Liquid Glass effect */
 .navbar {
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   color: var(--ios-text-primary);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 0 0 14px 14px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0 0 24px 24px;
   margin: 0 15px;
   padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
 }
 
 .nav-container {
@@ -228,20 +237,26 @@ const toggleMobileMenu = () => {
   text-decoration: none;
   font-size: 15px;
   padding: 8px 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   transition: all 0.3s ease;
   font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-link:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.25);
   color: var(--ios-primary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-link.nuxt-link-exact-active {
   background-color: var(--ios-primary);
   color: white !important;
   font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .nav-right {
@@ -256,9 +271,11 @@ const toggleMobileMenu = () => {
 }
 
 .lang-dropdown {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.15);
   color: var(--ios-text-primary);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 6px 30px 6px 12px;
   font-size: 14px;
   border-radius: 12px;
@@ -272,6 +289,17 @@ const toggleMobileMenu = () => {
   background-position: right 8px center;
   background-size: 16px;
   min-width: 120px;
+  transition: all 0.3s ease;
+}
+
+.lang-dropdown:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lang-dropdown:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
 }
 
 /* Ensure text color in dropdown options */

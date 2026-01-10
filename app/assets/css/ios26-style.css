@@ -280,7 +280,7 @@ body {
   }
   
   .navbar {
-    border-radius: var(--ios-card-radius-large);
+    border-radius: 0 0 24px 24px;
     margin: 0 10px;
   }
   
