@@ -1,4 +1,165 @@
 {
-    "city_name":"your_city_name",
-    "color":"#0047AB"
+    "city_name": "your_city_name",
+    "color": "#0047AB",
+    "mtr_lines": [
+        {
+            "name": "red_line",
+            "localizedName": {
+                "简体中文": "红色线",
+                "繁体中文": "紅色線",
+                "English": "Red Line",
+                "日本語": "赤線"
+            },
+            "color": "#e74c3c",
+            "stations": [
+                {
+                    "name": {
+                        "简体中文": "北站",
+                        "繁体中文": "北站",
+                        "English": "North Station",
+                        "日本語": "北駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "中央站",
+                        "繁体中文": "中央站",
+                        "English": "Central Station",
+                        "日本語": "セントラル駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "东站",
+                        "繁体中文": "東站",
+                        "English": "East Station",
+                        "日本語": "東駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "机场站",
+                        "繁体中文": "機場站",
+                        "English": "Airport Station",
+                        "日本語": "空港駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "南站",
+                        "繁体中文": "南站",
+                        "English": "South Station",
+                        "日本語": "南駅"
+                    }
+                }
+            ],
+            "operating_hours": "05:30 - 23:30"
+        },
+        {
+            "name": "blue_line",
+            "localizedName": {
+                "简体中文": "蓝色线",
+                "繁体中文": "藍色線",
+                "English": "Blue Line",
+                "日本語": "青線"
+            },
+            "color": "#3498db",
+            "stations": [
+                {
+                    "name": {
+                        "简体中文": "西站",
+                        "繁体中文": "西站",
+                        "English": "West Station",
+                        "日本語": "西駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "中央站",
+                        "繁体中文": "中央站",
+                        "English": "Central Station",
+                        "日本語": "セントラル駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "科技园",
+                        "繁体中文": "科技園",
+                        "English": "Tech Park",
+                        "日本語": "テックパーク"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "大学站",
+                        "繁体中文": "大學站",
+                        "English": "University Station",
+                        "日本語": "大学駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "会展站",
+                        "繁体中文": "會展站",
+                        "English": "Exhibition Station",
+                        "日本語": "展示場駅"
+                    }
+                }
+            ],
+            "operating_hours": "05:45 - 23:45"
+        },
+        {
+            "name": "green_line",
+            "localizedName": {
+                "简体中文": "绿色线",
+                "繁体中文": "綠色線",
+                "English": "Green Line",
+                "日本語": "緑線"
+            },
+            "color": "#2ecc71",
+            "stations": [
+                {
+                    "name": {
+                        "简体中文": "中央站",
+                        "繁体中文": "中央站",
+                        "English": "Central Station",
+                        "日本語": "セントラル駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "公园站",
+                        "繁体中文": "公園站",
+                        "English": "Park Station",
+                        "日本語": "公園駅"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "文化中心",
+                        "繁体中文": "文化中心",
+                        "English": "Cultural Center",
+                        "日本語": "文化センター"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "体育中心",
+                        "繁体中文": "體育中心",
+                        "English": "Sports Center",
+                        "日本語": "スポーツセンター"
+                    }
+                },
+                {
+                    "name": {
+                        "简体中文": "动物园",
+                        "繁体中文": "動物園",
+                        "English": "Zoo Station",
+                        "日本語": "動物園駅"
+                    }
+                }
+            ],
+            "operating_hours": "06:00 - 23:30"
+        }
+    ]
 }

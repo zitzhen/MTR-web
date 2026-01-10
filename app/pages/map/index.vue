@@ -54,31 +54,16 @@
         <div class="map-visualization">
           <div class="map-area">
             <!-- MTR Lines representation -->
-            <div class="line line-red">
-              <div class="line-name">{{ getLocalizedText('redLine') }}</div>
+            <div 
+              v-for="line in mtrLines" 
+              :key="line.name" 
+              :class="['line', 'line-' + line.name.replace('_line', '')]" 
+              :style="{ top: getLinePosition(line.name) }"
+            >
+              <div class="line-name">{{ line.localizedName }}</div>
               <div class="stations">
-                <div class="station" v-for="(station, index) in redLineStations" :key="'red-'+index">
-                  <div class="station-dot"></div>
-                  <div class="station-name">{{ station }}</div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="line line-blue">
-              <div class="line-name">{{ getLocalizedText('blueLine') }}</div>
-              <div class="stations">
-                <div class="station" v-for="(station, index) in blueLineStations" :key="'blue-'+index">
-                  <div class="station-dot"></div>
-                  <div class="station-name">{{ station }}</div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="line line-green">
-              <div class="line-name">{{ getLocalizedText('greenLine') }}</div>
-              <div class="stations">
-                <div class="station" v-for="(station, index) in greenLineStations" :key="'green-'+index">
-                  <div class="station-dot"></div>
+                <div class="station" v-for="(station, index) in getLineStations(line.name)" :key="`${line.name}-${index}`">
+                  <div class="station-dot" :style="{ backgroundColor: line.color, boxShadow: `0 0 0 2px ${line.color}` }"></div>
                   <div class="station-name">{{ station }}</div>
                 </div>
               </div>
@@ -151,41 +136,69 @@ const changeLanguage = (langCode) => {
   currentLanguage.value = langCode
 }
 
-// MTR lines data
-const redLineStations = ref([
-  '北站', '中央站', '东站', '机场站', '南站'
-])
-const blueLineStations = ref([
-  '西站', '中央站', '科技园', '大学站', '会展站'
-])
-const greenLineStations = ref([
-  '中央站', '公园站', '文化中心', '体育中心', '动物园'
-])
+// Function to get line position based on its index
+const getLinePosition = (lineName) => {
+  const lineOrder = ['red_line', 'blue_line', 'green_line'];
+  const index = lineOrder.indexOf(lineName);
+  if (index === -1) return '20%';
+  
+  // Calculate position: red_line at 20%, blue_line at 45%, green_line at 70%
+  const positions = ['20%', '45%', '70%'];
+  return positions[index] || '20%';
+};
 
-// All lines information
-const mtrLines = ref([
-  {
-    name: 'redLine',
-    localizedName: '红色线',
-    color: '#e74c3c',
-    stations: redLineStations.value,
-    operatingHours: '05:30 - 23:30'
-  },
-  {
-    name: 'blueLine',
-    localizedName: '蓝色线',
-    color: '#3498db',
-    stations: blueLineStations.value,
-    operatingHours: '05:45 - 23:45'
-  },
-  {
-    name: 'greenLine',
-    localizedName: '绿色线',
-    color: '#2ecc71',
-    stations: greenLineStations.value,
-    operatingHours: '06:00 - 23:30'
+// Function to get stations for a specific line
+const getLineStations = (lineName) => {
+  switch(lineName) {
+    case 'red_line':
+      return redLineStations.value;
+    case 'blue_line':
+      return blueLineStations.value;
+    case 'green_line':
+      return greenLineStations.value;
+    default:
+      return [];
   }
-])
+};
+
+// Get MTR lines data from configuration
+const mtrLines = computed(() => {
+  if (configData.value?.mtr_lines) {
+    return configData.value.mtr_lines.map(line => ({
+      name: line.name,
+      localizedName: line.localizedName[currentLanguage.value] || line.localizedName['简体中文'],
+      color: line.color,
+      stations: line.stations,
+      operatingHours: line.operating_hours
+    }))
+  }
+  return []
+})
+
+// Get stations for each line based on current language
+const redLineStations = computed(() => {
+  const line = mtrLines.value.find(l => l.name === 'red_line')
+  if (line) {
+    return line.stations.map(station => station.name[currentLanguage.value] || station.name['简体中文'])
+  }
+  return []
+})
+
+const blueLineStations = computed(() => {
+  const line = mtrLines.value.find(l => l.name === 'blue_line')
+  if (line) {
+    return line.stations.map(station => station.name[currentLanguage.value] || station.name['简体中文'])
+  }
+  return []
+})
+
+const greenLineStations = computed(() => {
+  const line = mtrLines.value.find(l => l.name === 'green_line')
+  if (line) {
+    return line.stations.map(station => station.name[currentLanguage.value] || station.name['简体中文'])
+  }
+  return []
+})
 
 // Function to get localized text based on current language
 const getLocalizedText = (key) => {
@@ -202,24 +215,7 @@ const getLocalizedText = (key) => {
       'English': 'View and explore all subway lines and stations in the city',
       '日本語': '市のすべての地下鉄路線と駅を表示・探索'
     },
-    'redLine': {
-      '简体中文': '红色线',
-      '繁体中文': '紅色線',
-      'English': 'Red Line',
-      '日本語': '赤線'
-    },
-    'blueLine': {
-      '简体中文': '蓝色线',
-      '繁体中文': '藍色線',
-      'English': 'Blue Line',
-      '日本語': '青線'
-    },
-    'greenLine': {
-      '简体中文': '绿色线',
-      '繁体中文': '綠色線',
-      'English': 'Green Line',
-      '日本語': '緑線'
-    },
+
     'centralStation': {
       '简体中文': '中央站',
       '繁体中文': '中央站',
@@ -423,24 +419,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  left: 10%;
+  width: 80%;
 }
 
-.line-red {
+.line-red_line {
   top: 20%;
-  left: 10%;
-  width: 80%;
 }
 
-.line-blue {
+.line-blue_line {
   top: 45%;
-  left: 10%;
-  width: 80%;
 }
 
-.line-green {
+.line-green_line {
   top: 70%;
-  left: 10%;
-  width: 80%;
 }
 
 .line-name {
