@@ -3,14 +3,14 @@
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <h1 class="nav-title">{{ cityName }}交通局</h1>
+          <h1 class="nav-title">{{ getLocalizedText('transportationBureau') }}</h1>
         </div>
         <div class="nav-menu" :class="{ active: isMobileMenuOpen }">
-          <a href="#" class="nav-link">首页</a>
-          <a href="#" class="nav-link">地铁线路</a>
-          <a href="#" class="nav-link">站点信息</a>
-          <a href="#" class="nav-link">时刻表</a>
-          <a href="#" class="nav-link">票务信息</a>
+          <a href="#" class="nav-link">{{ getLocalizedText('home') }}</a>
+          <a href="#" class="nav-link">{{ getLocalizedText('subwayLines') }}</a>
+          <a href="#" class="nav-link">{{ getLocalizedText('stationInfo') }}</a>
+          <a href="#" class="nav-link">{{ getLocalizedText('schedule') }}</a>
+          <a href="#" class="nav-link">{{ getLocalizedText('ticketInfo') }}</a>
         </div>
         <div class="nav-right">
           <div class="language-selector">
@@ -45,25 +45,25 @@
           <img src="/LOGO.jpg" alt="Logo" class="logo-image" />
         </div>
         <div class="title-container">
-          <h2 class="card-title">{{ cityName }}交通局</h2>
-          <p class="card-subtitle">{{ cityName }}交通局</p>
+          <h2 class="card-title">{{ getLocalizedText('transportationBureau') }}</h2>
+          <p class="card-subtitle">{{ getLocalizedText('transportationBureau') }}</p>
         </div>
       </div>
     </div>
 
     <!-- Welcome card -->
     <div class="welcome-card">
-      <h3 class="welcome-title">欢迎访问</h3>
+      <h3 class="welcome-title">{{ getLocalizedText('welcome') }}</h3>
       <p class="welcome-text">
-        欢迎访问{{ cityName }}交通局官方网站。本网站为您提供{{ cityName }}地铁线路的各类信息。请从以下菜单中选择您需要的服务。
+        {{ getLocalizedText('welcomeMessage') }}
       </p>
     </div>
 
     <!-- Notification box -->
     <div class="notification-box">
-      <div class="notification-header">⚠️ 警告</div>
+      <div class="notification-header">⚠️ {{ getLocalizedText('notification') }}</div>
       <div class="notification-content">
-        本网站是虚构城市"{{ cityName }}"的交通信息网站，所有内容均为虚构。
+        {{ getLocalizedText('notificationContent') }}
       </div>
     </div>
 </template>
@@ -127,6 +127,78 @@ const changeLanguage = (langCode) => {
   currentLanguage.value = langCode
   // Here you could add logic to change the language of the entire page
   // For now, we're just updating the current language value
+}
+
+// Function to get localized text based on current language
+const getLocalizedText = (key) => {
+  const localizedText = {
+    'transportationBureau': {
+      '简体中文': `${cityName}交通局`,
+      '繁体中文': `${cityName}交通局`, // In this case, same in both variants
+      'English': `${cityName} Transportation Bureau`,
+      '日本語': `${cityName}交通局`
+    },
+    'home': {
+      '简体中文': '首页',
+      '繁体中文': '首頁',
+      'English': 'Home',
+      '日本語': 'ホーム'
+    },
+    'subwayLines': {
+      '简体中文': '地铁线路',
+      '繁体中文': '地鐵路線',
+      'English': 'Subway Lines',
+      '日本語': '地下鉄路線'
+    },
+    'stationInfo': {
+      '简体中文': '站点信息',
+      '繁体中文': '站點資訊',
+      'English': 'Station Info',
+      '日本語': '駅情報'
+    },
+    'schedule': {
+      '简体中文': '时刻表',
+      '繁体中文': '時刻表',
+      'English': 'Schedule',
+      '日本語': '時刻表'
+    },
+    'ticketInfo': {
+      '简体中文': '票务信息',
+      '繁体中文': '票務資訊',
+      'English': 'Ticket Info',
+      '日本語': '切符情報'
+    },
+    'welcome': {
+      '简体中文': '欢迎访问',
+      '繁体中文': '歡迎訪問',
+      'English': 'Welcome',
+      '日本語': 'ようこそ'
+    },
+    'welcomeMessage': {
+      '简体中文': `欢迎访问${cityName}交通局官方网站。本网站为您提供${cityName}地铁线路的各类信息。请从以下菜单中选择您需要的服务。`,
+      '繁体中文': `歡迎訪問${cityName}交通局官方網站。本網站為您提供${cityName}地鐵線路的各類資訊。請從以下選單中選擇您需要的服務。`,
+      'English': `Welcome to the official ${cityName} Transportation Bureau website. This site provides you with various information about ${cityName} subway lines. Please select the services you need from the following menu.`,
+      '日本語': `${cityName}交通局公式サイトへようこそ。当サイトでは、${cityName}地下鉄の各種情報を提供しています。以下のメニューから必要なサービスを選択してください。`
+    },
+    'notification': {
+      '简体中文': '通知',
+      '繁体中文': '通知',
+      'English': 'Notice',
+      '日本語': 'お知らせ'
+    },
+    'notificationContent': {
+      '简体中文': `本网站是虚构城市"${cityName}"的交通信息网站，所有内容均为虚构。`,
+      '繁体中文': `本網站是虛構城市"${cityName}"的交通資訊網站，所有內容均為虛構。`,
+      'English': `This website is a fictional transportation information site for the city of "${cityName}", all content is fictional.`,
+      '日本語': `当サイトは架空の都市「${cityName}」の交通情報サイトであり、すべての内容は架空です。`
+    }
+  }
+  
+  return localizedText[key] && localizedText[key][currentLanguage.value] 
+    ? localizedText[key][currentLanguage.value] 
+    : localizedText[key] && localizedText[key]['简体中文'] 
+      ? localizedText[key]['简体中文'] 
+      : key
 }
 
 const toggleMobileMenu = () => {
