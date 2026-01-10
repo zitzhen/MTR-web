@@ -6,11 +6,11 @@
           <h1 class="nav-title">{{ getLocalizedText('transportationBureau') }}</h1>
         </div>
         <div class="nav-menu" :class="{ active: isMobileMenuOpen }">
-          <a href="#" class="nav-link">{{ getLocalizedText('home') }}</a>
-          <a href="#" class="nav-link">{{ getLocalizedText('subwayLines') }}</a>
-          <a href="#" class="nav-link">{{ getLocalizedText('stationInfo') }}</a>
-          <a href="#" class="nav-link">{{ getLocalizedText('schedule') }}</a>
-          <a href="#" class="nav-link">{{ getLocalizedText('ticketInfo') }}</a>
+          <NuxtLink to="/" class="nav-link">{{ getLocalizedText('home') }}</NuxtLink>
+          <NuxtLink to="/map" class="nav-link">{{ getLocalizedText('subwayLines') }}</NuxtLink>
+          <NuxtLink to="#" class="nav-link">{{ getLocalizedText('stationInfo') }}</NuxtLink>
+          <NuxtLink to="#" class="nav-link">{{ getLocalizedText('schedule') }}</NuxtLink>
+          <NuxtLink to="#" class="nav-link">{{ getLocalizedText('ticketInfo') }}</NuxtLink>
         </div>
         <div class="nav-right">
           <div class="language-selector">
