@@ -48,12 +48,6 @@
         欢迎访问{{ cityName }}交通局官方网站。本网站为您提供{{ cityName }}地铁线路的各类信息。请从以下菜单中选择您需要的服务。
       </p>
     </div>
-
-    <!-- Navigation arrows -->
-    <div class="navigation-arrows">
-      <button class="arrow-btn left-arrow">‹</button>
-      <button class="arrow-btn right-arrow">›</button>
-    </div>
 </template>
 
 <script setup>
@@ -319,32 +313,6 @@ body {
   line-height: 1.5;
 }
 
-/* Navigation arrows */
-.navigation-arrows {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 30px;
-  gap: 30px;
-}
-
-.arrow-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.arrow-btn:hover {
-  background-color: var(--arrow-btn-hover-color, #00388a); /* Lightened primary color with fallback */
-}
 
 /* Tablet responsiveness */
 @media (min-width: 481px) and (max-width: 768px) {
