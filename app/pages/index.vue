@@ -9,7 +9,7 @@
           <NuxtLink to="/" class="nav-link">{{ getLocalizedText('home') }}</NuxtLink>
           <NuxtLink to="/map" class="nav-link">{{ getLocalizedText('subwayLines') }}</NuxtLink>
           <NuxtLink to="/station-info" class="nav-link">{{ getLocalizedText('stationInfo') }}</NuxtLink>
-          <NuxtLink to="#" class="nav-link">{{ getLocalizedText('schedule') }}</NuxtLink>
+          <NuxtLink to="/schedule" class="nav-link">{{ getLocalizedText('schedule') }}</NuxtLink>
           <NuxtLink to="#" class="nav-link">{{ getLocalizedText('ticketInfo') }}</NuxtLink>
         </div>
         <div class="nav-right">
