@@ -124,16 +124,25 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Top Card styles - iOS 26 */
+/* Top Card styles - Liquid Glass effect */
 .top-card {
-  background-color: var(--ios-card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   margin: 15px;
   border-radius: var(--ios-card-radius);
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: var(--ios-card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.top-card:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
 }
 
 .top-card-content {
@@ -172,20 +181,28 @@ body {
   margin: 0;
 }
 
-/* Notification box styles - iOS 26 */
+/* Notification box styles - Liquid Glass effect */
 .notification-box {
-  background-color: var(--ios-card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 149, 149, 0.2);
+  background-color: rgba(255, 235, 235, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 149, 149, 0.25);
   border-left: 4px solid #FF3B30;
   border-radius: var(--ios-card-radius);
   margin: 15px;
   padding: 16px;
-  box-shadow: var(--ios-card-shadow);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: flex-start;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.notification-box:hover {
+  background-color: rgba(255, 235, 235, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
 }
 
 .notification-header {
@@ -203,16 +220,25 @@ body {
   flex: 1;
 }
 
-/* Welcome card styles - iOS 26 */
+/* Welcome card styles - Liquid Glass effect */
 .welcome-card {
-  background-color: var(--ios-card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   border-radius: var(--ios-card-radius);
   margin: 15px;
   padding: 22px;
-  box-shadow: var(--ios-card-shadow);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+.welcome-card:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
 }
 
 .welcome-title {

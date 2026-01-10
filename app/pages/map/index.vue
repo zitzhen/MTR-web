@@ -214,15 +214,25 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Page Header styles - iOS 26 */
+/* Page Header styles - Liquid Glass effect */
 .page-header {
-  background-color: var(--ios-card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   padding: 20px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 0 0 14px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0 0 24px 24px;
   margin: 0 15px 0 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.page-header:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
 }
 
 .container {
@@ -253,14 +263,23 @@ body {
 
 .map-visualization {
   flex: 3;
-  background-color: var(--ios-card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   border-radius: var(--ios-card-radius);
   padding: 22px;
-  box-shadow: var(--ios-card-shadow);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
   min-height: 500px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+.map-visualization:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
 }
 
 .map-area {
@@ -350,16 +369,25 @@ body {
   box-shadow: 0 0 0 2px #2ecc71;
 }
 
-/* Info Panel styles - iOS 26 */
+/* Info Panel styles - Liquid Glass effect */
 .info-panel {
   flex: 1;
-  background-color: var(--ios-card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   border-radius: var(--ios-card-radius);
   padding: 22px;
-  box-shadow: var(--ios-card-shadow);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+.info-panel:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
 }
 
 .line-info {

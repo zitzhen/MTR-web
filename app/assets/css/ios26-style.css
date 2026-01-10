@@ -39,7 +39,7 @@ body {
   line-height: 1.5;
 }
 
-/* iOS-style card containers */
+/* iOS-style card containers - Liquid Glass effect */
 .top-card,
 .welcome-card,
 .notification-box,
@@ -51,25 +51,44 @@ body {
 .schedule-table-container,
 .line-selection,
 .peak-hours-info,
-.copyright-content,
-.navbar {
-  background-color: var(--ios-card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+.copyright-content {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   border-radius: var(--ios-card-radius);
-  box-shadow: var(--ios-card-shadow);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
 }
 
-/* Enhanced card for important elements */
+.top-card:hover,
+.welcome-card:hover,
+.info-panel:hover,
+.station-detail-panel:hover,
+.schedule-table-container:hover,
+.copyright-content:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
+}
+
+/* Enhanced card for important elements - Liquid Glass effect */
 .top-card,
 .welcome-card,
 .info-panel,
 .station-detail-panel,
 .schedule-table-container,
 .copyright-content {
-  background-color: var(--ios-card-bg-light);
-  box-shadow: var(--ios-card-shadow-light);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
 }
 
 /* iOS-style buttons */
@@ -140,10 +159,12 @@ body {
   left: 0;
 }
 
-/* iOS-style station cards */
+/* iOS-style station cards - Liquid Glass effect */
 .station-card {
-  background-color: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--ios-card-radius-small);
   padding: 15px;
   cursor: pointer;
@@ -151,15 +172,20 @@ body {
 }
 
 .station-card:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.25);
   border-color: var(--ios-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
 }
 
 .station-card.selected {
-  background-color: rgba(0, 122, 255, 0.08);
+  background-color: rgba(0, 122, 255, 0.2);
   border-color: var(--ios-primary);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
 }
 
 /* iOS-style navigation links */
@@ -189,15 +215,27 @@ body {
   color: var(--ios-text-primary);
 }
 
-/* iOS-style notification box */
+/* iOS-style notification box - Liquid Glass effect */
 .notification-box {
-  background-color: rgba(255, 235, 235, 0.6);
-  border: 1px solid rgba(255, 149, 149, 0.3);
+  background-color: rgba(255, 235, 235, 0.25);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 149, 149, 0.25);
   border-left: 4px solid #FF3B30;
   border-radius: var(--ios-card-radius);
   padding: 15px;
   display: flex;
   align-items: flex-start;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12),
+              inset 0 2px 2px rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.notification-box:hover {
+  background-color: rgba(255, 235, 235, 0.3);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
 }
 
 .notification-header {
