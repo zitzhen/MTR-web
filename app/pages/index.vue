@@ -51,20 +51,20 @@
       </div>
     </div>
 
-    <!-- Notification box -->
-    <div class="notification-box">
-      <div class="notification-header">通知</div>
-      <div class="notification-content">
-        本网站是虚构城市"{{ cityName }}"的交通信息网站，所有内容均为虚构。
-      </div>
-    </div>
-
     <!-- Welcome card -->
     <div class="welcome-card">
       <h3 class="welcome-title">欢迎访问</h3>
       <p class="welcome-text">
         欢迎访问{{ cityName }}交通局官方网站。本网站为您提供{{ cityName }}地铁线路的各类信息。请从以下菜单中选择您需要的服务。
       </p>
+    </div>
+
+    <!-- Notification box -->
+    <div class="notification-box">
+      <div class="notification-header">⚠️ 警告</div>
+      <div class="notification-content">
+        本网站是虚构城市"{{ cityName }}"的交通信息网站，所有内容均为虚构。
+      </div>
     </div>
 </template>
 
@@ -347,27 +347,32 @@ body {
   margin: 0;
 }
 
-/* Notification box styles */
+/* Notification box styles - Warning Alert */
 .notification-box {
-  background-color: white;
-  border: 2px solid #FFA500; /* Yellow-orange border */
+  background-color: #fff3cd; /* Light yellow background */
+  border: 1px solid #ffeaa7; /* Yellow border */
+  border-left: 4px solid #f39c12; /* Orange left border for emphasis */
   border-radius: 8px;
   margin: 15px;
   padding: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: flex-start;
 }
 
 .notification-header {
   font-weight: bold;
-  color: #FFA500;
-  margin-bottom: 8px;
+  color: #d35400; /* Darker orange */
+  margin-right: 10px;
   font-size: 16px;
+  flex-shrink: 0;
 }
 
 .notification-content {
-  color: #333;
+  color: #7d6608; /* Darker yellow/brown text */
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.5;
+  flex: 1;
 }
 
 /* Welcome card styles */
@@ -390,6 +395,17 @@ body {
   color: #333;
   font-size: 14px;
   line-height: 1.5;
+}
+
+.notification-box {
+  margin: 15px;
+  padding: 15px;
+  flex-direction: column;
+}
+
+.notification-header {
+  margin-bottom: 8px;
+  margin-right: 0;
 }
 
 
@@ -415,6 +431,15 @@ body {
   .top-card-content {
     padding: 20px;
     gap: 20px;
+  }
+  
+  .notification-box {
+    margin: 15px;
+    padding: 16px;
+  }
+  
+  .notification-content {
+    font-size: 14px;
   }
 }
 
@@ -560,15 +585,17 @@ body {
     line-height: 1.6;
   }
   
-  .navigation-arrows {
-    margin: 30px 0 40px;
-    gap: 40px;
+  .notification-box {
+    margin: 15px 30px;
+    padding: 18px;
   }
   
-  .arrow-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
+  .notification-header {
+    font-size: 17px;
+  }
+  
+  .notification-content {
+    font-size: 15px;
   }
 }
 
