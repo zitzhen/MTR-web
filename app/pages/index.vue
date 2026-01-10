@@ -134,7 +134,7 @@ const getLocalizedText = (key) => {
   const localizedText = {
     'transportationBureau': {
       '简体中文': `${cityName}交通局`,
-      '繁体中文': `${cityName}交通局`, // In this case, same in both variants
+      '繁体中文': `${cityName}交通局`,
       'English': `${cityName} Transportation Bureau`,
       '日本語': `${cityName}交通局`
     },
