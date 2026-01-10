@@ -11,6 +11,7 @@
           <NuxtLink to="/map" class="nav-link active">地铁线路</NuxtLink>
           <NuxtLink to="/station-info" class="nav-link">站点信息</NuxtLink>
           <NuxtLink to="/timetable" class="nav-link">时刻表</NuxtLink>
+          <NuxtLink to="/copyright" class="nav-link">©</NuxtLink>
         </div>
         <div class="nav-right">
           <div class="language-selector">

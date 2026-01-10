@@ -10,6 +10,7 @@
           <NuxtLink to="/map" class="nav-link">{{ getLocalizedText('subwayLines') }}</NuxtLink>
           <NuxtLink to="/station-info" class="nav-link">{{ getLocalizedText('stationInfo') }}</NuxtLink>
           <NuxtLink to="/timetable" class="nav-link">{{ getLocalizedText('schedule') }}</NuxtLink>
+          <NuxtLink to="/copyright" class="nav-link">©</NuxtLink>
         </div>
         <div class="nav-right">
           <div class="language-selector">

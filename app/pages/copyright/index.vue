@@ -93,6 +93,14 @@
             <h3>{{ getLocalizedText('templateInfoTitle') }}</h3>
             <p>{{ getLocalizedText('templateInfoText') }}</p>
           </div>
+          
+          <div class="creator-info">
+            <h3>{{ getLocalizedText('creatorInfoTitle') }}</h3>
+            <div class="creator-details">
+              <p><strong>{{ getLocalizedText('creatorNameLabel') }}:</strong> {{ getLocalizedText('localizedCreatorName') }}</p>
+              <p><strong>{{ getLocalizedText('github') }}:</strong> <a href="https://github.com/Iamliuxiaozhen" target="_blank">Iamliuxiaozhen</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -301,6 +309,66 @@ const getLocalizedText = (key) => {
       '繁体中文': '這是一個通用的交通資訊網站模板，可以根據需要進行定制以適應不同的城市和交通系統。模板使用Nuxt.js構建，支援多語言和響應式設計。',
       'English': 'This is a generic transportation information website template that can be customized as needed to adapt to different cities and transportation systems. The template is built with Nuxt.js and supports multi-language and responsive design.',
       '日本語': 'これは一般的な交通情報ウェブサイトテンプレートで、さまざまな都市や交通システムに合わせてカスタマイズできます。テンプレートはNuxt.jsで構築されており、多言語対応とレスポンシブデザインをサポートしています。'
+    },
+    'creatorInfoTitle': {
+      '简体中文': '源创作者信息',
+      '繁体中文': '源創作者資訊',
+      'English': 'Creator Information',
+      '日本語': '制作者情報'
+    },
+    'chineseName': {
+      '简体中文': '中文名',
+      '繁体中文': '中文名',
+      'English': 'Chinese Name',
+      '日本語': '中国語名'
+    },
+    'englishName': {
+      '简体中文': '英文名',
+      '繁体中文': '英文名',
+      'English': 'English Name',
+      '日本語': '英語名'
+    },
+    'japaneseName': {
+      '简体中文': '日文名',
+      '繁体中文': '日文名',
+      'English': 'Japanese Name',
+      '日本語': '日本語名'
+    },
+    'github': {
+      '简体中文': 'GitHub',
+      '繁体中文': 'GitHub',
+      'English': 'GitHub',
+      '日本語': 'GitHub'
+    },
+    'creatorName': {
+      '简体中文': '刘小圳',
+      '繁体中文': '劉小圳',
+      'English': '刘小圳',
+      '日本語': '劉小圳'
+    },
+    'creatorEnglishName': {
+      '简体中文': 'Oliver',
+      '繁体中文': 'Oliver',
+      'English': 'Oliver',
+      '日本語': 'Oliver'
+    },
+    'creatorNameLabel': {
+      '简体中文': '创作者',
+      '繁体中文': '創作者',
+      'English': 'Creator',
+      '日本語': '制作者'
+    },
+    'localizedCreatorName': {
+      '简体中文': '刘小圳',
+      '繁体中文': '劉小圳',
+      'English': 'Oliver',
+      '日本語': 'Oliver'
+    },
+    'derivativeWarningText': {
+      '简体中文': '任何基于本项目创建的衍生作品都不得删除原创作者信息，只允许在保留原始作者信息的基础上添加新的贡献者信息。',
+      '繁体中文': '任何基於本項目創建的衍生作品都不得刪除原創作者資訊，只允許在保留原始作者資訊的基礎上添加新的貢獻者資訊。',
+      'English': 'Any derivative works created based on this project must not remove the original author information; only additional contributor information may be added while preserving the original author credits.',
+      '日本語': 'このプロジェクトに基づいて作成されたすべての派生物では、元の作成者情報を削除してはいけません。元の作成者情報を保持したまま、新しい貢献者情報を追加することのみが許可されます。'
     }
   }
   
@@ -542,6 +610,33 @@ body {
   color: #555;
   margin: 0;
   line-height: 1.5;
+}
+
+.creator-info {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.creator-info h3 {
+  color: var(--primary-color, #0047AB);
+  margin: 0 0 15px 0;
+  font-size: 18px;
+}
+
+.creator-details p {
+  margin: 8px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.creator-details a {
+  color: var(--primary-color, #0047AB);
+  text-decoration: none;
+}
+
+.creator-details a:hover {
+  text-decoration: underline;
 }
 
 /* Tablet responsiveness */
