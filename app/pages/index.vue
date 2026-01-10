@@ -6,10 +6,10 @@
           <h1 class="nav-title">{{ getLocalizedText('transportationBureau') }}</h1>
         </div>
         <div class="nav-menu" :class="{ active: isMobileMenuOpen }">
-          <NuxtLink to="/" class="nav-link">{{ getLocalizedText('home') }}</NuxtLink>
+          <NuxtLink to="/" class="nav-link active">{{ getLocalizedText('home') }}</NuxtLink>
           <NuxtLink to="/map" class="nav-link">{{ getLocalizedText('subwayLines') }}</NuxtLink>
           <NuxtLink to="/station-info" class="nav-link">{{ getLocalizedText('stationInfo') }}</NuxtLink>
-          <NuxtLink to="/schedule" class="nav-link">{{ getLocalizedText('schedule') }}</NuxtLink>
+          <NuxtLink to="/timetable" class="nav-link">{{ getLocalizedText('schedule') }}</NuxtLink>
         </div>
         <div class="nav-right">
           <div class="language-selector">
