@@ -274,10 +274,14 @@ body {
   .schedule-table-container,
   .line-selection,
   .peak-hours-info,
-  .copyright-content,
-  .navbar {
+  .copyright-content {
     border-radius: var(--ios-card-radius-large);
     margin: 10px;
+  }
+  
+  .navbar {
+    border-radius: var(--ios-card-radius-large);
+    margin: 0 10px;
   }
   
   .container {
