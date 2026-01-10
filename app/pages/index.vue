@@ -1,27 +1,39 @@
 <template>
-    <!-- Header with title -->
-    <header class="header">
-      <div class="header-content">
-        <h1 class="title">{{ cityName }}交通局 (Minecraft...)</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h1 class="nav-title">{{ cityName }}交通局</h1>
+        </div>
+        <div class="nav-menu" :class="{ active: isMobileMenuOpen }">
+          <a href="#" class="nav-link">首页</a>
+          <a href="#" class="nav-link">地铁线路</a>
+          <a href="#" class="nav-link">站点信息</a>
+          <a href="#" class="nav-link">时刻表</a>
+          <a href="#" class="nav-link">票务信息</a>
+        </div>
+        <div class="nav-right">
+          <div class="date-time">
+            {{ currentDateTime }}
+          </div>
+          <div class="language-selector">
+            <button 
+              v-for="lang in languages" 
+              :key="lang.code"
+              :class="['lang-btn', { active: currentLanguage === lang.code }]"
+              @click="changeLanguage(lang.code)"
+            >
+              {{ lang.text }}
+            </button>
+          </div>
+          <div class="mobile-menu-toggle" @click="toggleMobileMenu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+          </div>
+        </div>
       </div>
-    </header>
-
-    <!-- Blue banner with date and language selector -->
-    <div class="banner">
-      <div class="date-time">
-        {{ currentDateTime }}
-      </div>
-      <div class="language-selector">
-        <button 
-          v-for="lang in languages" 
-          :key="lang.code"
-          :class="['lang-btn', { active: currentLanguage === lang.code }]"
-          @click="changeLanguage(lang.code)"
-        >
-          {{ lang.text }}
-        </button>
-      </div>
-    </div>
+    </nav>
 
     <!-- Logo section -->
     <div class="logo-section">
@@ -135,8 +147,14 @@ const updateDateTime = () => {
   currentDateTime.value = `${year}年${month}月${day}日${weekday} ${hour}:${minute}:${second}`
 }
 
+const isMobileMenuOpen = ref(false)
+
 const changeLanguage = (langCode) => {
   currentLanguage.value = langCode
+}
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
 }
 
 // Update time every second after mounting
@@ -159,45 +177,65 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Header styles */
-.header {
+/* Navigation Bar styles */
+.navbar {
   background-color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
   color: white;
-  padding: 15px;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.title {
-  font-size: 16px;
-  font-weight: normal;
-  margin: 0;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Banner styles */
-.banner {
-  background-color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
-  color: white;
-  padding: 10px 15px;
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .date-time {
   font-size: 12px;
-  flex-grow: 1;
-  text-align: center;
+  display: none;
 }
 
 .language-selector {
@@ -220,6 +258,67 @@ body {
   background-color: white;
   color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
   font-weight: bold;
+}
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Tablet and Mobile responsiveness */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--primary-color, #0047AB);
+    padding: 10px 0;
+    border-radius: 4px;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+  }
+  
+  .nav-link {
+    padding: 10px 20px;
+    width: 100%;
+  }
+  
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .date-time {
+    display: block;
+    font-size: 11px;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .logo-section {
+    padding-top: 20px;
+  }
 }
 
 /* Logo section styles */
@@ -334,16 +433,21 @@ body {
     margin: 20px auto;
   }
   
-  .header {
-    padding: 20px;
+  .nav-container {
+    padding: 15px 30px;
   }
   
-  .title {
+  .nav-title {
     font-size: 20px;
   }
   
-  .banner {
-    padding: 15px 25px;
+  .nav-menu {
+    gap: 30px;
+  }
+  
+  .nav-link {
+    font-size: 15px;
+    padding: 10px 15px;
   }
   
   .date-time {
@@ -418,18 +522,28 @@ body {
   }
 }
 
-/* Mobile responsiveness - 保持原有移动端样式 */
+/* Mobile responsiveness - Updated for new navbar */
 @media (max-width: 480px) {
   .mtr-website {
     max-width: 100%;
   }
   
-  .title {
-    font-size: 14px;
+  .nav-title {
+    font-size: 16px;
   }
   
   .logo-title {
     font-size: 20px;
+  }
+  
+  .nav-container {
+    padding: 10px 15px;
+    gap: 10px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+    padding: 8px 12px;
   }
 }
 </style>
