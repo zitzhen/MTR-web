@@ -38,13 +38,17 @@
       </div>
     </nav>
 
-    <!-- Logo section -->
-    <div class="logo-section">
-      <div class="logo-circle">
-        <img src="/LOGO.jpg" alt="Logo" class="logo-image" />
+    <!-- Top Card with Logo and City Name -->
+    <div class="top-card">
+      <div class="top-card-content">
+        <div class="logo-container">
+          <img src="/LOGO.jpg" alt="Logo" class="logo-image" />
+        </div>
+        <div class="title-container">
+          <h2 class="card-title">{{ cityName }}交通局</h2>
+          <p class="card-subtitle">{{ cityName }}交通局</p>
+        </div>
       </div>
-      <h2 class="logo-title">{{ cityName }}交通局</h2>
-      <p class="logo-subtitle">{{ cityName }}交通局</p>
     </div>
 
     <!-- Notification box -->
@@ -298,43 +302,49 @@ body {
   }
 }
 
-/* Logo section styles */
-.logo-section {
-  text-align: center;
-  padding: 30px 15px;
-}
-
-.logo-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: var(--primary-color, #0047AB);
-  margin: 0 auto 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+/* Top Card styles */
+.top-card {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.logo-image {
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
-  max-width: 80px;
-  max-height: 80px;
+.top-card-content {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
 }
 
-.logo-title {
-  font-size: 24px;
+.logo-container {
+  flex-shrink: 0;
+}
+
+.logo-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
+}
+
+.title-container {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 22px;
   color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
-  margin: 10px 0 5px;
+  margin: 0 0 5px 0;
   font-weight: bold;
 }
 
-.logo-subtitle {
+.card-subtitle {
   font-size: 14px;
   color: #666;
+  margin: 0;
 }
 
 /* Notification box styles */
@@ -389,17 +399,22 @@ body {
     max-width: 95%;
   }
   
-  .logo-title {
-    font-size: 26px;
+  .card-title {
+    font-size: 24px;
   }
   
-  .logo-circle {
-    width: 120px;
-    height: 120px;
+  .logo-image {
+    width: 90px;
+    height: 90px;
   }
   
   .welcome-text {
     font-size: 15px;
+  }
+  
+  .top-card-content {
+    padding: 20px;
+    gap: 20px;
   }
 }
 
@@ -410,68 +425,113 @@ body {
     margin: 20px auto;
   }
   
-  .nav-container {
-    padding: 15px 30px;
-  }
-  
-  .nav-title {
-    font-size: 20px;
-  }
-  
-  .nav-menu {
-    gap: 30px;
-  }
-  
-  .nav-link {
-    font-size: 15px;
-    padding: 10px 15px;
-  }
-  
 
   
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 110px;
-    background-size: 12px;
-    padding-right: 28px;
+  .nav-container {
+  
+    padding: 15px 30px;
+  
   }
   
-  /* Mobile responsive styles for dropdown options */
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
+  
+  
+  .nav-title {
+  
+    font-size: 20px;
+  
   }
+  
+  
+  
+  .nav-menu {
+  
+    gap: 30px;
+  
+  }
+  
+  
+  
+  .nav-link {
+  
+    font-size: 15px;
+  
+    padding: 10px 15px;
+  
+  }
+  
+  
+  
+  .lang-dropdown {
+  
+    font-size: 14px;
+  
+    padding: 6px 12px;
+  
+    min-width: 120px;
+  
+    background-size: 14px;
+  
+    padding-right: 30px;
+  
+  }
+  
+  
   
   /* PC responsive styles for dropdown options */
+  
   .lang-dropdown option {
+  
     color: #333;
+  
     font-size: 14px;
+  
   }
   
-  .logo-section {
-    padding: 40px 15px;
+  
+  
+  .top-card {
+  
+    margin: 20px 30px;
+  
   }
   
-  .logo-circle {
-    width: 150px;
-    height: 150px;
+  
+  
+  .top-card-content {
+  
+    padding: 25px;
+  
+    gap: 25px;
+  
   }
+  
+  
   
   .logo-image {
-    max-width: 100px;
-    max-height: 100px;
+  
+    width: 100px;
+  
+    height: 100px;
+  
+    border-width: 4px;
+  
   }
   
-  .logo-title {
-    font-size: 32px;
-    margin: 15px 0 5px;
+  
+  
+  .card-title {
+  
+    font-size: 26px;
+  
   }
   
-  .logo-subtitle {
-    font-size: 18px;
-  }
   
+  
+  .card-subtitle {
+  
+    font-size: 16px;
+  
+  }  
   .notification-box {
     margin: 20px 30px;
     padding: 20px;
@@ -522,7 +582,7 @@ body {
     font-size: 16px;
   }
   
-  .logo-title {
+  .card-title {
     font-size: 20px;
   }
   
@@ -534,6 +594,36 @@ body {
   .nav-link {
     font-size: 14px;
     padding: 8px 12px;
+  }
+  
+  .top-card-content {
+    padding: 15px;
+    gap: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .title-container {
+    text-align: center;
+  }
+  
+  .lang-dropdown {
+    font-size: 14px;
+    padding: 6px 12px;
+    min-width: 110px;
+    background-size: 12px;
+    padding-right: 28px;
+  }
+  
+  /* Mobile responsive styles for dropdown options */
+  .lang-dropdown option {
+    color: #333;
+    font-size: 14px;
   }
 }
 </style>
