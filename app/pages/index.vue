@@ -17,14 +17,20 @@
             {{ currentDateTime }}
           </div>
           <div class="language-selector">
-            <button 
-              v-for="lang in languages" 
-              :key="lang.code"
-              :class="['lang-btn', { active: currentLanguage === lang.code }]"
-              @click="changeLanguage(lang.code)"
-            >
-              {{ lang.text }}
-            </button>
+            <select class="lang-dropdown" v-model="currentLanguage" @change="changeLanguage(currentLanguage)">
+              <option value="简体中文">
+                🇨🇳 简体中文
+              </option>
+              <option value="繁体中文">
+                🇭🇰 繁体中文
+              </option>
+              <option value="English">
+                English
+              </option>
+              <option value="日本語">
+                日本語
+              </option>
+            </select>
           </div>
           <div class="mobile-menu-toggle" @click="toggleMobileMenu">
             <span class="hamburger"></span>
@@ -114,13 +120,7 @@ const { data: configData } = await useAsyncData('config', async () => {
 const cityName = configData.value?.city_name || 'Error'
 const color = configData.value?.color || '#0047AB'
 
-const currentLanguage = ref('中文')
-const languages = ref([
-  { code: '日本語', text: '日本語' },
-  { code: '中文', text: '中文' },
-  { code: 'English', text: 'English' }
-])
-
+const currentLanguage = ref('简体中文')
 const currentDateTime = ref('')
 
 const updateDateTime = () => {
@@ -151,6 +151,8 @@ const isMobileMenuOpen = ref(false)
 
 const changeLanguage = (langCode) => {
   currentLanguage.value = langCode
+  // Here you could add logic to change the language of the entire page
+  // For now, we're just updating the current language value
 }
 
 const toggleMobileMenu = () => {
@@ -240,24 +242,41 @@ body {
 
 .language-selector {
   display: flex;
-  gap: 5px;
+  align-items: center;
 }
 
-.lang-btn {
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.7);
+.lang-dropdown {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 3px 8px;
+  padding: 5px 10px;
   font-size: 12px;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  outline: none;
+  appearance: none; /* Remove default dropdown arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+  padding-right: 25px;
+  min-width: 100px;
 }
 
-.lang-btn.active {
-  background-color: white;
-  color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
-  font-weight: bold;
+/* Ensure text color in dropdown options */
+.lang-dropdown option {
+  color: #333; /* Dark color for options to ensure readability */
+  background-color: white; /* White background for options */
+}
+
+.lang-dropdown:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.lang-dropdown:focus {
+  outline: none;
 }
 
 /* Mobile menu toggle */
@@ -454,9 +473,24 @@ body {
     font-size: 14px;
   }
   
-  .lang-btn {
+  .lang-dropdown {
     font-size: 14px;
-    padding: 5px 12px;
+    padding: 6px 12px;
+    min-width: 110px;
+    background-size: 12px;
+    padding-right: 28px;
+  }
+  
+  /* Mobile responsive styles for dropdown options */
+  .lang-dropdown option {
+    color: #333;
+    font-size: 14px;
+  }
+  
+  /* PC responsive styles for dropdown options */
+  .lang-dropdown option {
+    color: #333;
+    font-size: 14px;
   }
   
   .logo-section {
