@@ -1,5 +1,4 @@
 <template>
-  <div class="mtr-website" :style="`--primary-color: ${color}; --primary-light-color: ${lightenColor(color, 20)}; --arrow-btn-hover-color: ${lightenColor(color, 10)}`">
     <!-- Header with title -->
     <header class="header">
       <div class="header-content">
@@ -55,7 +54,6 @@
       <button class="arrow-btn left-arrow">‹</button>
       <button class="arrow-btn right-arrow">›</button>
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -166,16 +164,6 @@ if (process.client) {
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #f5f5f5;
-}
-
-.mtr-website {
-  max-width: 1200px; /* 增加PC端最大宽度 */
-  margin: 0 auto;
-  background-color: white;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* 添加阴影提升PC端视觉效果 */
 }
 
 /* Header styles */
