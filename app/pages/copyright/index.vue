@@ -99,6 +99,7 @@
             <div class="creator-details">
               <p><strong>{{ getLocalizedText('creatorNameLabel') }}:</strong> {{ getLocalizedText('localizedCreatorName') }}</p>
               <p><strong>{{ getLocalizedText('github') }}:</strong> <a href="https://github.com/Iamliuxiaozhen" target="_blank">Iamliuxiaozhen</a></p>
+              <p><strong>{{ getLocalizedText('sourceProject') }}:</strong> <a href="https://github.com/zitzhen/MTR-web" target="_blank">https://github.com/zitzhen/MTR-web</a></p>
             </div>
           </div>
         </div>
@@ -363,6 +364,12 @@ const getLocalizedText = (key) => {
       '繁体中文': '劉小圳',
       'English': 'Oliver',
       '日本語': 'Oliver'
+    },
+    'sourceProject': {
+      '简体中文': '源项目',
+      '繁体中文': '源項目',
+      'English': 'Source Project',
+      '日本語': 'ソースプロジェクト'
     },
     'derivativeWarningText': {
       '简体中文': '任何基于本项目创建的衍生作品都不得删除原创作者信息，只允许在保留原始作者信息的基础上添加新的贡献者信息。',
