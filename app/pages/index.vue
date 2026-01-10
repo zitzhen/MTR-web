@@ -2,7 +2,6 @@
     <!-- Header with title -->
     <header class="header">
       <div class="header-content">
-        <span class="close-btn">X</span>
         <h1 class="title">{{ cityName }}交通局 (Minecraft...)</h1>
       </div>
     </header>
@@ -174,12 +173,6 @@ body {
   justify-content: center;
 }
 
-.close-btn {
-  position: absolute;
-  left: 15px;
-  font-size: 20px;
-  cursor: pointer;
-}
 
 .title {
   font-size: 16px;
