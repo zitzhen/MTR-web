@@ -13,9 +13,6 @@
           <a href="#" class="nav-link">票务信息</a>
         </div>
         <div class="nav-right">
-          <div class="date-time">
-            {{ currentDateTime }}
-          </div>
           <div class="language-selector">
             <select class="lang-dropdown" v-model="currentLanguage" @change="changeLanguage(currentLanguage)">
               <option value="简体中文">
@@ -121,33 +118,6 @@ const cityName = configData.value?.city_name || 'Error'
 const color = configData.value?.color || '#0047AB'
 
 const currentLanguage = ref('简体中文')
-const currentDateTime = ref('')
-
-const updateDateTime = () => {
-  const now = new Date()
-  const options = { 
-    year: 'numeric', 
-    month: '2-digit', 
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    weekday: 'long'
-  }
-  // Format the date to Chinese format
-  const year = now.getFullYear()
-  const month = String(now.getMonth() + 1).padStart(2, '0')
-  const day = String(now.getDate()).padStart(2, '0')
-  const hour = String(now.getHours()).padStart(2, '0')
-  const minute = String(now.getMinutes()).padStart(2, '0')
-  const second = String(now.getSeconds()).padStart(2, '0')
-  const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-  const weekday = weekdays[now.getDay()]
-  
-  currentDateTime.value = `${year}年${month}月${day}日${weekday} ${hour}:${minute}:${second}`
-}
-
-const isMobileMenuOpen = ref(false)
 
 const changeLanguage = (langCode) => {
   currentLanguage.value = langCode
@@ -157,12 +127,6 @@ const changeLanguage = (langCode) => {
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
-}
-
-// Update time every second after mounting
-if (process.client) {
-  updateDateTime()
-  setInterval(updateDateTime, 1000)
 }
 </script>
 
@@ -235,10 +199,7 @@ body {
   gap: 15px;
 }
 
-.date-time {
-  font-size: 12px;
-  display: none;
-}
+
 
 .language-selector {
   display: flex;
@@ -326,10 +287,7 @@ body {
     justify-content: space-between;
   }
   
-  .date-time {
-    display: block;
-    font-size: 11px;
-  }
+
   
   .mobile-menu-toggle {
     display: flex;
@@ -469,9 +427,7 @@ body {
     padding: 10px 15px;
   }
   
-  .date-time {
-    font-size: 14px;
-  }
+
   
   .lang-dropdown {
     font-size: 14px;
