@@ -85,11 +85,11 @@
               <div class="station-details">
                 <p class="station-address">
                   <strong>{{ getLocalizedText('address') }}:</strong> 
-                  {{ station.address[currentLanguage] || station.address['简体中文'] }}
+                  {{ station.address && (station.address[currentLanguage] || station.address['简体中文']) || getLocalizedText('noData') }}
                 </p>
                 <p class="station-features">
                   <strong>{{ getLocalizedText('features') }}:</strong> 
-                  {{ station.features[currentLanguage] || station.features['简体中文'] }}
+                  {{ station.features && (station.features[currentLanguage] || station.features['简体中文']) || getLocalizedText('noData') }}
                 </p>
               </div>
             </div>
@@ -122,26 +122,27 @@
             
             <div class="detail-section">
               <h3>{{ getLocalizedText('stationAddress') }}</h3>
-              <p>{{ selectedStation.address[currentLanguage] || selectedStation.address['简体中文'] }}</p>
+              <p>{{ selectedStation.address && (selectedStation.address[currentLanguage] || selectedStation.address['简体中文']) || getLocalizedText('noData') }}</p>
             </div>
             
             <div class="detail-section">
               <h3>{{ getLocalizedText('stationFeatures') }}</h3>
-              <p>{{ selectedStation.features[currentLanguage] || selectedStation.features['简体中文'] }}</p>
+              <p>{{ selectedStation.features && (selectedStation.features[currentLanguage] || selectedStation.features['简体中文']) || getLocalizedText('noData') }}</p>
             </div>
             
             <div class="detail-section">
               <h3>{{ getLocalizedText('operatingHours') }}</h3>
-              <p>{{ selectedStation.operating_hours || '05:30 - 23:30' }}</p>
+              <p>{{ selectedStation.operating_hours || getLocalizedText('noData') }}</p>
             </div>
             
             <div class="detail-section">
               <h3>{{ getLocalizedText('connectedServices') }}</h3>
-              <ul>
+              <ul v-if="selectedStation.services && selectedStation.services.length > 0">
                 <li v-for="(service, index) in selectedStation.services" :key="index">
-                  {{ service[currentLanguage] || service['简体中文'] }}
+                  {{ service[currentLanguage] || service['简体中文'] || getLocalizedText('noData') }}
                 </li>
               </ul>
+              <p v-else>{{ getLocalizedText('noData') }}</p>
             </div>
           </div>
         </div>
@@ -222,39 +223,10 @@ const allStations = computed(() => {
             id: `${line.name}-${stationName}`,
             name: station.name,
             lines: [line.name],
-            address: station.address || {
-              '简体中文': '地址信息待补充',
-              '繁体中文': '地址資訊待補充',
-              'English': 'Address information pending',
-              '日本語': '住所情報は未定'
-            },
-            features: station.features || {
-              '简体中文': '无障碍设施、公共卫生间、便利店',
-              '繁体中文': '無障礙設施、公共衛生間、便利店',
-              'English': 'Accessibility facilities, public restrooms, convenience store',
-              '日本語': 'バリアフリー設備、公共トイレ、コンビニ'
-            },
+            address: station.address,
+            features: station.features,
             operating_hours: line.operating_hours,
-            services: station.services || [
-              {
-                '简体中文': '公交接驳',
-                '繁体中文': '公交接駁',
-                'English': 'Bus connection',
-                '日本語': 'バス接続'
-              },
-              {
-                '简体中文': '停车场',
-                '繁体中文': '停車場',
-                'English': 'Parking lot',
-                '日本語': '駐車場'
-              },
-              {
-                '简体中文': '商业设施',
-                '繁体中文': '商業設施',
-                'English': 'Commercial facilities',
-                '日本語': '商業施設'
-              }
-            ]
+            services: station.services
           })
         } else {
           // If station exists, add the line to its lines array if not already present
@@ -373,6 +345,12 @@ const getLocalizedText = (key) => {
       '繁体中文': '設施',
       'English': 'Facilities',
       '日本語': '設備'
+    },
+    'noData': {
+      '简体中文': '暂无数据',
+      '繁体中文': '暫無數據',
+      'English': 'No data available',
+      '日本語': 'データがありません'
     }
   }
   

@@ -18,7 +18,39 @@
                         "繁体中文": "北站",
                         "English": "North Station",
                         "日本語": "北駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "交通路1001号",
+                        "繁体中文": "交通路1001號",
+                        "English": "1001 Transportation Road",
+                        "日本語": "交通路1001番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "停车场",
+                            "繁体中文": "停車場",
+                            "English": "Parking lot",
+                            "日本語": "駐車場"
+                        },
+                        {
+                            "简体中文": "商业设施",
+                            "繁体中文": "商業設施",
+                            "English": "Commercial facilities",
+                            "日本語": "商業施設"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -26,7 +58,39 @@
                         "繁体中文": "中央站",
                         "English": "Central Station",
                         "日本語": "セントラル駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "中心广场1号",
+                        "繁体中文": "中心廣場1號",
+                        "English": "1 Central Plaza",
+                        "日本語": "センター広場1番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、信息中心",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、信息中心",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, information center",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、案内所"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "出租车站",
+                            "繁体中文": "計程車站",
+                            "English": "Taxi stand",
+                            "日本語": "タクシー乗り場"
+                        },
+                        {
+                            "简体中文": "商业设施",
+                            "繁体中文": "商業設施",
+                            "English": "Commercial facilities",
+                            "日本語": "商業施設"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -34,7 +98,33 @@
                         "繁体中文": "東站",
                         "English": "East Station",
                         "日本語": "東駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "东方大道888号",
+                        "繁体中文": "東方大道888號",
+                        "English": "888 Oriental Avenue",
+                        "日本語": "東方大通り888番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "停车场",
+                            "繁体中文": "停車場",
+                            "English": "Parking lot",
+                            "日本語": "駐車場"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -42,7 +132,39 @@
                         "繁体中文": "機場站",
                         "English": "Airport Station",
                         "日本語": "空港駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "机场路1号",
+                        "繁体中文": "機場路1號",
+                        "English": "1 Airport Road",
+                        "日本語": "空港通り1番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、行李寄存",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、行李寄存",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, luggage storage",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、荷物預かり"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "机场接驳",
+                            "繁体中文": "機場接駁",
+                            "English": "Airport connection",
+                            "日本語": "空港連絡"
+                        },
+                        {
+                            "简体中文": "出租车站",
+                            "繁体中文": "計程車站",
+                            "English": "Taxi stand",
+                            "日本語": "タクシー乗り場"
+                        },
+                        {
+                            "简体中文": "停车场",
+                            "繁体中文": "停車場",
+                            "English": "Parking lot",
+                            "日本語": "駐車場"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -50,7 +172,39 @@
                         "繁体中文": "南站",
                         "English": "South Station",
                         "日本語": "南駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "南部商务区555号",
+                        "繁体中文": "南部商務區555號",
+                        "English": "555 South Business District",
+                        "日本語": "南部ビジネス地区555番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、商业街",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、商業街",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, shopping arcade",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、商店街"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "出租车站",
+                            "繁体中文": "計程車站",
+                            "English": "Taxi stand",
+                            "日本語": "タクシー乗り場"
+                        },
+                        {
+                            "简体中文": "商业设施",
+                            "繁体中文": "商業設施",
+                            "English": "Commercial facilities",
+                            "日本語": "商業施設"
+                        }
+                    ]
                 }
             ],
             "operating_hours": "05:30 - 23:30"
@@ -71,7 +225,33 @@
                         "繁体中文": "西站",
                         "English": "West Station",
                         "日本語": "西駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "西部新区2001号",
+                        "繁体中文": "西部新區2001號",
+                        "English": "2001 West New District",
+                        "日本語": "西部新地区2001番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "停车场",
+                            "繁体中文": "停車場",
+                            "English": "Parking lot",
+                            "日本語": "駐車場"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -79,7 +259,39 @@
                         "繁体中文": "中央站",
                         "English": "Central Station",
                         "日本語": "セントラル駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "中心广场1号",
+                        "繁体中文": "中心廣場1號",
+                        "English": "1 Central Plaza",
+                        "日本語": "センター広場1番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、信息中心",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、信息中心",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, information center",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、案内所"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "出租车站",
+                            "繁体中文": "計程車站",
+                            "English": "Taxi stand",
+                            "日本語": "タクシー乗り場"
+                        },
+                        {
+                            "简体中文": "商业设施",
+                            "繁体中文": "商業設施",
+                            "English": "Commercial facilities",
+                            "日本語": "商業施設"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -87,7 +299,33 @@
                         "繁体中文": "科技園",
                         "English": "Tech Park",
                         "日本語": "テックパーク"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "创新路666号",
+                        "繁体中文": "創新路666號",
+                        "English": "666 Innovation Road",
+                        "日本語": "イノベーション通り666番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、共享办公空间",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、共享辦公空間",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, co-working space",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、コワーキングスペース"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "共享自行车",
+                            "繁体中文": "共享自行車",
+                            "English": "Bike sharing",
+                            "日本語": "自転車シェアリング"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -95,7 +333,33 @@
                         "繁体中文": "大學站",
                         "English": "University Station",
                         "日本語": "大学駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "学府路100号",
+                        "繁体中文": "學府路100號",
+                        "English": "100 University Road",
+                        "日本語": "学府通り100番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、学习空间",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、學習空間",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, study area",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、学習スペース"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "共享单车",
+                            "繁体中文": "共享單車",
+                            "English": "Bike sharing",
+                            "日本語": "自転車シェアリング"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -103,7 +367,39 @@
                         "繁体中文": "會展站",
                         "English": "Exhibition Station",
                         "日本語": "展示場駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "会展路88号",
+                        "繁体中文": "會展路88號",
+                        "English": "88 Exhibition Road",
+                        "日本語": "展示場通り88番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、多功能厅",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、多功能廳",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, multi-purpose hall",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、多目的ホール"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "出租车站",
+                            "繁体中文": "計程車站",
+                            "English": "Taxi stand",
+                            "日本語": "タクシー乗り場"
+                        },
+                        {
+                            "简体中文": "停车场",
+                            "繁体中文": "停車場",
+                            "English": "Parking lot",
+                            "日本語": "駐車場"
+                        }
+                    ]
                 }
             ],
             "operating_hours": "05:45 - 23:45"
@@ -124,7 +420,39 @@
                         "繁体中文": "中央站",
                         "English": "Central Station",
                         "日本語": "セントラル駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "中心广场1号",
+                        "繁体中文": "中心廣場1號",
+                        "English": "1 Central Plaza",
+                        "日本語": "センター広場1番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、信息中心",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、信息中心",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, information center",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、案内所"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "出租车站",
+                            "繁体中文": "計程車站",
+                            "English": "Taxi stand",
+                            "日本語": "タクシー乗り場"
+                        },
+                        {
+                            "简体中文": "商业设施",
+                            "繁体中文": "商業設施",
+                            "English": "Commercial facilities",
+                            "日本語": "商業施設"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -132,7 +460,33 @@
                         "繁体中文": "公園站",
                         "English": "Park Station",
                         "日本語": "公園駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "绿园大道333号",
+                        "繁体中文": "綠園大道333號",
+                        "English": "333 Green Park Avenue",
+                        "日本語": "緑園大通り333番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、观景台",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、觀景台",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, viewing deck",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、展望台"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "自行车租赁",
+                            "繁体中文": "自行車租賃",
+                            "English": "Bike rental",
+                            "日本語": "自転車レンタル"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -140,7 +494,33 @@
                         "繁体中文": "文化中心",
                         "English": "Cultural Center",
                         "日本語": "文化センター"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "文化路500号",
+                        "繁体中文": "文化路500號",
+                        "English": "500 Culture Road",
+                        "日本語": "文化通り500番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、展览空间",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、展覽空間",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, exhibition space",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、展示スペース"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "出租车站",
+                            "繁体中文": "計程車站",
+                            "English": "Taxi stand",
+                            "日本語": "タクシー乗り場"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -148,7 +528,33 @@
                         "繁体中文": "體育中心",
                         "English": "Sports Center",
                         "日本語": "スポーツセンター"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "体育路888号",
+                        "繁体中文": "體育路888號",
+                        "English": "888 Sports Road",
+                        "日本語": "スポーツ通り888番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、健身设施",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、健身設施",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, fitness facilities",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、フィットネス施設"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "停车场",
+                            "繁体中文": "停車場",
+                            "English": "Parking lot",
+                            "日本語": "駐車場"
+                        }
+                    ]
                 },
                 {
                     "name": {
@@ -156,7 +562,39 @@
                         "繁体中文": "動物園",
                         "English": "Zoo Station",
                         "日本語": "動物園駅"
-                    }
+                    },
+                    "address": {
+                        "简体中文": "动物园路1号",
+                        "繁体中文": "動物園路1號",
+                        "English": "1 Zoo Road",
+                        "日本語": "動物園通り1番地"
+                    },
+                    "features": {
+                        "简体中文": "无障碍设施、公共卫生间、便利店、电梯、儿童游乐区",
+                        "繁体中文": "無障礙設施、公共衛生間、便利店、電梯、兒童遊樂區",
+                        "English": "Accessibility facilities, public restrooms, convenience store, elevators, children's play area",
+                        "日本語": "バリアフリー設備、公共トイレ、コンビニ、エレベーター、児童遊園地"
+                    },
+                    "services": [
+                        {
+                            "简体中文": "公交接驳",
+                            "繁体中文": "公交接駁",
+                            "English": "Bus connection",
+                            "日本語": "バス接続"
+                        },
+                        {
+                            "简体中文": "出租车站",
+                            "繁体中文": "計程車站",
+                            "English": "Taxi stand",
+                            "日本語": "タクシー乗り場"
+                        },
+                        {
+                            "简体中文": "停车场",
+                            "繁体中文": "停車場",
+                            "English": "Parking lot",
+                            "日本語": "駐車場"
+                        }
+                    ]
                 }
             ],
             "operating_hours": "06:00 - 23:30"
