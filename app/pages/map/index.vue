@@ -1,43 +1,5 @@
 <template>
   <div class="map-page">
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <NuxtLink to="/" class="nav-logo">
-          <h1 class="nav-title">{{ cityName }}交通局</h1>
-        </NuxtLink>
-        <div class="nav-menu" :class="{ active: isMobileMenuOpen }">
-          <NuxtLink to="/" class="nav-link">首页</NuxtLink>
-          <NuxtLink to="/map" class="nav-link active">地铁线路</NuxtLink>
-          <NuxtLink to="/station-info" class="nav-link">站点信息</NuxtLink>
-          <NuxtLink to="/timetable" class="nav-link">时刻表</NuxtLink>
-          <NuxtLink to="/copyright" class="nav-link">©</NuxtLink>
-        </div>
-        <div class="nav-right">
-          <div class="language-selector">
-            <select class="lang-dropdown" v-model="currentLanguage" @change="changeLanguage(currentLanguage)">
-              <option value="简体中文">
-                🇨🇳 简体中文
-              </option>
-              <option value="繁体中文">
-                🇭🇰 繁体中文
-              </option>
-              <option value="English">
-                English
-              </option>
-              <option value="日本語">
-                日本語
-              </option>
-            </select>
-          </div>
-          <div class="mobile-menu-toggle" @click="toggleMobileMenu">
-            <span class="hamburger"></span>
-            <span class="hamburger"></span>
-            <span class="hamburger"></span>
-          </div>
-        </div>
-      </div>
-    </nav>
 
     <!-- Page Title -->
     <div class="page-header">
@@ -125,12 +87,7 @@ const { data: configData } = await useAsyncData('config', async () => {
 const cityName = configData.value?.city_name || 'Error'
 const color = configData.value?.color || '#0047AB'
 
-const isMobileMenuOpen = ref(false)
 const currentLanguage = ref('简体中文')
-
-const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
-}
 
 const changeLanguage = (langCode) => {
   currentLanguage.value = langCode
@@ -257,113 +214,7 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Navigation Bar styles */
-.navbar {
-  background-color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.nav-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0;
-  color: white;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 25px;
-  align-items: center;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.nav-link:hover, .nav-link.active {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* Language selector styles */
-.language-selector {
-  display: flex;
-  align-items: center;
-}
-
-.lang-dropdown {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 12px;
-  cursor: pointer;
-  outline: none;
-  appearance: none; /* Remove default dropdown arrow */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 12px;
-  padding-right: 25px;
-  min-width: 100px;
-}
-
-.lang-dropdown:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-}
-
-.lang-dropdown option {
-  color: #333;
-  background-color: white;
-}
-
-/* Mobile menu toggle */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.hamburger {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 3px 0;
-  transition: 0.3s;
-}
 
 /* Page Header styles */
 .page-header {
