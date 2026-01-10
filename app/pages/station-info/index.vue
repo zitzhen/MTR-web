@@ -332,13 +332,15 @@ body {
   background-color: #f5f5f5;
 }
 
-
-
-/* Page Header styles */
+/* Page Header styles - iOS 26 */
 .page-header {
-  background-color: white;
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 14px 14px;
+  margin: 0 15px 0 15px;
 }
 
 .container {
@@ -349,14 +351,14 @@ body {
 
 .page-title {
   font-size: 24px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 5px 0;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .page-subtitle {
   font-size: 14px;
-  color: #666;
+  color: var(--ios-text-secondary);
   margin: 0;
 }
 
@@ -369,10 +371,13 @@ body {
 
 .station-list {
   flex: 3;
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  padding: 22px;
+  box-shadow: var(--ios-card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .search-box {
@@ -382,9 +387,17 @@ body {
 .search-input {
   width: 100%;
   padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--ios-primary);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
 }
 
 .station-cards {
@@ -394,21 +407,24 @@ body {
 }
 
 .station-card {
-  border: 1px solid #eee;
-  border-radius: 6px;
-  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--ios-card-radius-small);
+  padding: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  background-color: rgba(0, 0, 0, 0.02);
 }
 
 .station-card:hover {
-  border-color: var(--primary-color, #0047AB);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-color: var(--ios-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
 }
 
 .station-card.selected {
-  border-color: var(--primary-color, #0047AB);
-  background-color: rgba(0, 71, 171, 0.05);
+  border-color: var(--ios-primary);
+  background-color: rgba(0, 122, 255, 0.08);
 }
 
 .station-header {
@@ -420,23 +436,26 @@ body {
 
 .station-name {
   font-size: 16px;
-  font-weight: bold;
-  color: #333;
+  font-weight: 600;
+  color: var(--ios-text-primary);
   margin: 0;
 }
 
 .station-lines {
   display: flex;
-  gap: 5px;
+  gap: 6px;
 }
 
 .line-badge {
   background-color: #ccc;
   color: white;
-  padding: 3px 8px;
-  border-radius: 12px;
+  padding: 4px 10px;
+  border-radius: 14px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+  min-width: 40px;
 }
 
 .line-badge.detail {
@@ -448,19 +467,22 @@ body {
 .station-details p {
   margin: 5px 0;
   font-size: 13px;
-  color: #666;
+  color: var(--ios-text-secondary);
 }
 
-/* Station Detail Panel styles */
+/* Station Detail Panel styles - iOS 26 */
 .station-detail-panel {
   flex: 2;
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  padding: 22px;
+  box-shadow: var(--ios-card-shadow);
   height: fit-content;
   max-height: 80vh;
   overflow-y: auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .detail-header {
@@ -468,14 +490,15 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .detail-title {
   font-size: 20px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0;
+  font-weight: 600;
 }
 
 .close-btn {
@@ -483,39 +506,42 @@ body {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #999;
-  width: 30px;
-  height: 30px;
+  color: var(--ios-text-secondary);
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
 .close-btn:hover {
-  color: #333;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--ios-text-primary);
 }
 
 .detail-section {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .detail-section h3 {
   font-size: 16px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 10px 0;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .detail-section p {
   margin: 0 0 10px 0;
-  color: #555;
+  color: var(--ios-text-primary);
   line-height: 1.5;
 }
 
 .detail-section ul {
   padding-left: 20px;
   margin: 0;
-  color: #555;
+  color: var(--ios-text-primary);
   line-height: 1.5;
 }
 
@@ -540,105 +566,50 @@ body {
     font-size: 22px;
   }
   
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+  .page-header {
+    margin: 0 10px 0 10px;
   }
   
-  .nav-menu {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    background-color: var(--primary-color, #0047AB);
-    padding: 10px 0;
-    border-radius: 4px;
+  .station-list {
+    padding: 20px;
   }
   
-  .nav-menu.active {
-    display: flex;
-  }
-  
-  .nav-link {
-    padding: 10px 20px;
-    width: 100%;
-  }
-  
-  .nav-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
+  .station-detail-panel {
+    padding: 20px;
   }
 }
 
 /* PC responsiveness */
 @media (min-width: 769px) {
-  .nav-container {
-    padding: 15px 30px;
-  }
-  
-  .nav-title {
-    font-size: 20px;
-  }
-  
-  .nav-menu {
-    gap: 30px;
-  }
-  
-  .nav-link {
-    font-size: 15px;
-    padding: 10px 15px;
-  }
-  
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 120px;
-    background-size: 14px;
-    padding-right: 30px;
-  }
-  
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
-  }
-  
   .page-title {
-    font-size: 28px;
+    font-size: 26px;
   }
   
   .page-subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
   
   .station-list {
-    padding: 25px;
+    padding: 26px;
   }
   
   .station-name {
-    font-size: 18px;
+    font-size: 17px;
   }
   
   .detail-title {
-    font-size: 22px;
+    font-size: 21px;
   }
   
   .detail-section h3 {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .container {
-    padding: 0 15px;
-  }
-  
-  .nav-title {
-    font-size: 16px;
+    padding: 0 12px;
   }
   
   .station-info-container {
@@ -646,7 +617,7 @@ body {
   }
   
   .page-title {
-    font-size: 20px;
+    font-size: 21px;
   }
   
   .page-subtitle {
@@ -654,34 +625,15 @@ body {
   }
   
   .station-list {
-    padding: 15px;
+    padding: 18px;
   }
   
-  .nav-container {
-    padding: 10px 15px;
-    gap: 10px;
+  .station-detail-panel {
+    padding: 20px;
   }
   
-  .nav-link {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-  
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 110px;
-    background-size: 12px;
-    padding-right: 28px;
-  }
-  
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
+  .page-header {
+    margin: 0 8px 0 8px;
   }
   
   .station-header {

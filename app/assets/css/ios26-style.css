@@ -1,0 +1,295 @@
+/* iOS 26 Style Global Styles */
+
+/* iOS-style color palette */
+:root {
+  --ios-primary: #007AFF;
+  --ios-primary-light: #0A84FF;
+  --ios-primary-dark: #0066CC;
+  --ios-secondary: #30D158;
+  --ios-secondary-light: #32D74B;
+  --ios-secondary-dark: #28A745;
+  --ios-system-gray: #8E8E93;
+  --ios-system-gray-light: #AEAEB2;
+  --ios-system-gray-dark: #484848;
+  --ios-system-background: #FFFFFF;
+  --ios-system-background-light: #F2F2F7;
+  --ios-system-background-dark: #000000;
+  --ios-card-bg: rgba(255, 255, 255, 0.8);
+  --ios-card-bg-light: rgba(255, 255, 255, 0.6);
+  --ios-card-bg-dark: rgba(255, 255, 255, 0.4);
+  --ios-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --ios-card-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --ios-card-shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --ios-card-radius: 14px;
+  --ios-card-radius-small: 10px;
+  --ios-card-radius-large: 18px;
+  --ios-text-primary: #1C1C1E;
+  --ios-text-secondary: #8E8E93;
+  --ios-text-tertiary: #AEAEB2;
+  --ios-text-quaternary: #C7C7CC;
+}
+
+/* Basic iOS-style typography */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--ios-system-background-light) !important;
+  color: var(--ios-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* iOS-style card containers */
+.top-card,
+.welcome-card,
+.notification-box,
+.page-header,
+.map-visualization,
+.info-panel,
+.station-list,
+.station-detail-panel,
+.schedule-table-container,
+.line-selection,
+.peak-hours-info,
+.copyright-content,
+.navbar {
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  box-shadow: var(--ios-card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced card for important elements */
+.top-card,
+.welcome-card,
+.info-panel,
+.station-detail-panel,
+.schedule-table-container,
+.copyright-content {
+  background-color: var(--ios-card-bg-light);
+  box-shadow: var(--ios-card-shadow-light);
+}
+
+/* iOS-style buttons */
+.line-btn,
+.close-btn,
+.lang-dropdown {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.line-btn:hover,
+.close-btn:hover,
+.lang-dropdown:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.line-btn.active {
+  background-color: var(--ios-primary);
+  color: white;
+  border-color: var(--ios-primary);
+}
+
+/* iOS-style input fields */
+.search-input {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--ios-primary);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+}
+
+/* iOS-style select dropdown */
+.lang-dropdown {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--ios-text-primary);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 6px 30px 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='rgba(142, 142, 147, 1)'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  min-width: 120px;
+}
+
+/* iOS-style table header */
+.table-header {
+  background-color: rgba(0, 0, 0, 0.03);
+  position: sticky;
+  left: 0;
+}
+
+/* iOS-style station cards */
+.station-card {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--ios-card-radius-small);
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.station-card:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: var(--ios-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.station-card.selected {
+  background-color: rgba(0, 122, 255, 0.08);
+  border-color: var(--ios-primary);
+}
+
+/* iOS-style navigation links */
+.nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-link.nuxt-link-exact-active {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-weight: 500;
+}
+
+/* iOS-style section titles */
+.section-title,
+.page-title {
+  font-weight: 600;
+  color: var(--ios-text-primary);
+}
+
+/* iOS-style notification box */
+.notification-box {
+  background-color: rgba(255, 235, 235, 0.6);
+  border: 1px solid rgba(255, 149, 149, 0.3);
+  border-left: 4px solid #FF3B30;
+  border-radius: var(--ios-card-radius);
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.notification-header {
+  font-weight: 600;
+  color: #FF2D55;
+  margin-right: 10px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.notification-content {
+  color: #444446;
+  font-size: 14px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* iOS-style line badges */
+.line-badge {
+  background-color: #ccc;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+  min-width: 40px;
+}
+
+/* iOS-style derivative warning */
+.derivative-warning {
+  background-color: rgba(255, 193, 7, 0.15);
+  border-left: 4px solid #FFCC00;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.derivative-warning h4 {
+  color: #FF9500;
+  margin: 0 0 10px 0;
+}
+
+/* iOS-style scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* iOS-style responsive adjustments */
+@media (max-width: 768px) {
+  .top-card,
+  .welcome-card,
+  .notification-box,
+  .map-visualization,
+  .info-panel,
+  .station-list,
+  .station-detail-panel,
+  .schedule-table-container,
+  .line-selection,
+  .peak-hours-info,
+  .copyright-content,
+  .navbar {
+    border-radius: var(--ios-card-radius-large);
+    margin: 10px;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+}
+
+/* iOS-style focus states */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+}

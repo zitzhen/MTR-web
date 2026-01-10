@@ -180,21 +180,27 @@ const toggleMobileMenu = () => {
 </script>
 
 <style scoped>
-/* Navigation Bar styles */
+/* Navigation Bar styles - iOS 26 */
 .navbar {
-  background-color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
-  color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--ios-text-primary);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 14px 14px;
+  margin: 10px 15px 0 15px;
+  padding: 5px 0;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 12px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -206,38 +212,42 @@ const toggleMobileMenu = () => {
 
 .nav-title {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
   margin: 0;
-  color: white;
+  color: var(--ios-text-primary);
 }
 
 .nav-menu {
   display: flex;
-  gap: 25px;
+  gap: 20px;
   align-items: center;
 }
 
 .nav-link {
-  color: white;
+  color: var(--ios-text-primary);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 400;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--ios-primary);
 }
 
 .nav-link.nuxt-link-exact-active {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--ios-primary);
+  color: white !important;
+  font-weight: 500;
 }
 
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .language-selector {
@@ -246,37 +256,37 @@ const toggleMobileMenu = () => {
 }
 
 .lang-dropdown {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 5px 10px;
-  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--ios-text-primary);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 30px 6px 12px;
+  font-size: 14px;
   border-radius: 12px;
   cursor: pointer;
   outline: none;
-  appearance: none; /* Remove default dropdown arrow */
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='rgba(142, 142, 147, 1)'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 8px center;
-  background-size: 12px;
-  padding-right: 25px;
-  min-width: 100px;
+  background-size: 16px;
+  min-width: 120px;
 }
 
 /* Ensure text color in dropdown options */
 .lang-dropdown option {
-  color: #333; /* Dark color for options to ensure readability */
-  background-color: white; /* White background for options */
+  color: #333;
+  background-color: white;
 }
 
 .lang-dropdown:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .lang-dropdown:focus {
   outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
 }
 
 /* Mobile menu toggle */
@@ -288,11 +298,12 @@ const toggleMobileMenu = () => {
 }
 
 .hamburger {
-  width: 25px;
+  width: 22px;
   height: 3px;
-  background-color: white;
+  background-color: var(--ios-text-primary);
   margin: 3px 0;
   transition: 0.3s;
+  border-radius: 2px;
 }
 
 /* Tablet and Mobile responsiveness */
@@ -300,16 +311,22 @@ const toggleMobileMenu = () => {
   .nav-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 12px;
+    padding: 12px 15px;
   }
   
   .nav-menu {
     display: none;
     width: 100%;
     flex-direction: column;
-    background-color: var(--primary-color, #0047AB);
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 10px 0;
-    border-radius: 4px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 5px;
   }
   
   .nav-menu.active {
@@ -319,6 +336,8 @@ const toggleMobileMenu = () => {
   .nav-link {
     padding: 10px 20px;
     width: 100%;
+    border-radius: 8px;
+    margin: 0 8px;
   }
   
   .nav-right {
@@ -329,33 +348,38 @@ const toggleMobileMenu = () => {
   .mobile-menu-toggle {
     display: flex;
   }
+  
+  .navbar {
+    margin: 10px;
+    border-radius: 14px;
+  }
 }
 
 /* PC responsiveness */
 @media (min-width: 769px) {
   .nav-container {
-    padding: 15px 30px;
+    padding: 12px 25px;
   }
   
   .nav-title {
-    font-size: 20px;
+    font-size: 19px;
   }
   
   .nav-menu {
-    gap: 30px;
+    gap: 22px;
   }
   
   .nav-link {
     font-size: 15px;
-    padding: 10px 15px;
+    padding: 9px 14px;
   }
   
   .lang-dropdown {
     font-size: 14px;
-    padding: 6px 12px;
-    min-width: 120px;
-    background-size: 14px;
-    padding-right: 30px;
+    padding: 6px 30px 6px 12px;
+    min-width: 125px;
+    background-size: 16px;
+    padding-right: 32px;
   }
   
   /* PC responsive styles for dropdown options */
@@ -368,12 +392,12 @@ const toggleMobileMenu = () => {
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .nav-title {
-    font-size: 16px;
+    font-size: 17px;
   }
   
   .nav-container {
-    padding: 10px 15px;
-    gap: 10px;
+    padding: 10px 12px;
+    gap: 8px;
   }
   
   .nav-link {
@@ -382,17 +406,22 @@ const toggleMobileMenu = () => {
   }
   
   .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
+    font-size: 13px;
+    padding: 5px 28px 5px 10px;
     min-width: 110px;
-    background-size: 12px;
+    background-size: 14px;
     padding-right: 28px;
   }
   
   /* Mobile responsive styles for dropdown options */
   .lang-dropdown option {
     color: #333;
-    font-size: 14px;
+    font-size: 13px;
+  }
+  
+  .navbar {
+    margin: 8px;
+    border-radius: 12px;
   }
 }
 </style>

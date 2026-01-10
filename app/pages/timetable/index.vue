@@ -329,13 +329,15 @@ body {
   background-color: #f5f5f5;
 }
 
-
-
-/* Page Header styles */
+/* Page Header styles - iOS 26 */
 .page-header {
-  background-color: white;
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 14px 14px;
+  margin: 0 15px 0 15px;
 }
 
 .container {
@@ -346,14 +348,14 @@ body {
 
 .page-title {
   font-size: 24px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 5px 0;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .page-subtitle {
   font-size: 14px;
-  color: #666;
+  color: var(--ios-text-secondary);
   margin: 0;
 }
 
@@ -364,18 +366,21 @@ body {
 
 .section-title {
   font-size: 20px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 15px 0;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* Line Selection styles */
+/* Line Selection styles - iOS 26 */
 .line-selection {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  padding: 22px;
+  box-shadow: var(--ios-card-shadow);
   margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .line-buttons {
@@ -386,32 +391,38 @@ body {
 
 .line-btn {
   padding: 8px 16px;
-  border: 2px solid;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   background: transparent;
-  color: #333;
+  color: var(--ios-text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
 }
 
 .line-btn:hover {
-  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
 }
 
 .line-btn.active {
+  background-color: var(--ios-primary);
   color: white;
-  font-weight: bold;
+  border-color: var(--ios-primary);
+  font-weight: 500;
 }
 
-/* Schedule Table styles */
+/* Schedule Table styles - iOS 26 */
 .schedule-table-container {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  padding: 22px;
+  box-shadow: var(--ios-card-shadow);
   margin-bottom: 20px;
   overflow-x: auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .schedule-legend {
@@ -443,7 +454,7 @@ body {
 .table-header {
   display: grid;
   grid-template-columns: 150px repeat(19, 1fr);
-  background-color: #f0f0f0;
+  background-color: rgba(0, 0, 0, 0.03);
   position: sticky;
   left: 0;
 }
@@ -451,9 +462,10 @@ body {
 .table-header > div {
   padding: 10px;
   text-align: center;
-  font-weight: bold;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--ios-text-primary);
 }
 
 .table-header > div:last-child {
@@ -466,15 +478,16 @@ body {
 }
 
 .table-row.odd {
-  background-color: #fafafa;
+  background-color: rgba(0, 0, 0, 0.02);
 }
 
 .table-row > div {
   padding: 8px;
   text-align: center;
-  border-right: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
+  color: var(--ios-text-secondary);
 }
 
 .table-row > div:last-child {
@@ -482,12 +495,13 @@ body {
 }
 
 .station-cell {
-  font-weight: bold;
-  background-color: #f8f8f8;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.03);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: var(--ios-text-primary);
 }
 
 .time-cell {
@@ -511,22 +525,26 @@ body {
   font-size: 10px;
 }
 
-/* Peak Hours Info styles */
+/* Peak Hours Info styles - iOS 26 */
 .peak-hours-info {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  padding: 22px;
+  box-shadow: var(--ios-card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .peak-hours-info h3 {
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .peak-hours-content p {
   margin: 8px 0;
-  color: #555;
+  color: var(--ios-text-primary);
   line-height: 1.5;
 }
 
@@ -536,37 +554,20 @@ body {
     font-size: 22px;
   }
   
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+  .page-header {
+    margin: 0 10px 0 10px;
   }
   
-  .nav-menu {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    background-color: var(--primary-color, #0047AB);
-    padding: 10px 0;
-    border-radius: 4px;
+  .line-selection {
+    padding: 20px;
   }
   
-  .nav-menu.active {
-    display: flex;
+  .schedule-table-container {
+    padding: 20px;
   }
   
-  .nav-link {
-    padding: 10px 20px;
-    width: 100%;
-  }
-  
-  .nav-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
+  .peak-hours-info {
+    padding: 20px;
   }
   
   .table-header, .table-row {
@@ -581,70 +582,44 @@ body {
 
 /* PC responsiveness */
 @media (min-width: 769px) {
-  .nav-container {
-    padding: 15px 30px;
-  }
-  
-  .nav-title {
-    font-size: 20px;
-  }
-  
-  .nav-menu {
-    gap: 30px;
-  }
-  
-  .nav-link {
-    font-size: 15px;
-    padding: 10px 15px;
-  }
-  
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 120px;
-    background-size: 14px;
-    padding-right: 30px;
-  }
-  
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
-  }
-  
   .page-title {
-    font-size: 28px;
+    font-size: 26px;
   }
   
   .page-subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
   
   .section-title {
-    font-size: 22px;
+    font-size: 21px;
   }
   
   .line-btn {
-    font-size: 15px;
-    padding: 10px 20px;
+    font-size: 14px;
+    padding: 9px 18px;
   }
   
-  .schedule-table-container, .line-selection, .peak-hours-info {
-    padding: 25px;
+  .line-selection {
+    padding: 24px;
+  }
+  
+  .schedule-table-container {
+    padding: 24px;
+  }
+  
+  .peak-hours-info {
+    padding: 24px;
   }
 }
 
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .container {
-    padding: 0 15px;
-  }
-  
-  .nav-title {
-    font-size: 16px;
+    padding: 0 12px;
   }
   
   .page-title {
-    font-size: 20px;
+    font-size: 21px;
   }
   
   .page-subtitle {
@@ -652,38 +627,23 @@ body {
   }
   
   .section-title {
-    font-size: 18px;
+    font-size: 19px;
   }
   
-  .line-selection, .schedule-table-container, .peak-hours-info {
-    padding: 15px;
+  .line-selection {
+    padding: 18px;
   }
   
-  .nav-container {
-    padding: 10px 15px;
-    gap: 10px;
+  .schedule-table-container {
+    padding: 18px;
   }
   
-  .nav-link {
-    font-size: 14px;
-    padding: 8px 12px;
+  .peak-hours-info {
+    padding: 18px;
   }
   
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 110px;
-    background-size: 12px;
-    padding-right: 28px;
-  }
-  
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
+  .page-header {
+    margin: 0 8px 0 8px;
   }
   
   .line-buttons {

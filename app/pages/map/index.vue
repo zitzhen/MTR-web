@@ -214,13 +214,15 @@ body {
   background-color: #f5f5f5;
 }
 
-
-
-/* Page Header styles */
+/* Page Header styles - iOS 26 */
 .page-header {
-  background-color: white;
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 14px 14px;
+  margin: 0 15px 0 15px;
 }
 
 .container {
@@ -231,14 +233,14 @@ body {
 
 .page-title {
   font-size: 24px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 5px 0;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .page-subtitle {
   font-size: 14px;
-  color: #666;
+  color: var(--ios-text-secondary);
   margin: 0;
 }
 
@@ -251,11 +253,14 @@ body {
 
 .map-visualization {
   flex: 3;
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  padding: 22px;
+  box-shadow: var(--ios-card-shadow);
   min-height: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .map-area {
@@ -287,9 +292,9 @@ body {
 }
 
 .line-name {
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 10px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
 }
 
 .stations {
@@ -345,13 +350,16 @@ body {
   box-shadow: 0 0 0 2px #2ecc71;
 }
 
-/* Info Panel styles */
+/* Info Panel styles - iOS 26 */
 .info-panel {
   flex: 1;
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  padding: 22px;
+  box-shadow: var(--ios-card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .line-info {
@@ -359,7 +367,7 @@ body {
   align-items: flex-start;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .line-info:last-child {
@@ -380,12 +388,13 @@ body {
 .line-details h3 {
   font-size: 16px;
   margin: 0 0 5px 0;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
+  font-weight: 600;
 }
 
 .line-details p {
   font-size: 13px;
-  color: #666;
+  color: var(--ios-text-secondary);
   margin: 3px 0;
 }
 
@@ -399,82 +408,31 @@ body {
     font-size: 22px;
   }
   
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+  .page-header {
+    margin: 0 10px 0 10px;
   }
   
-  .nav-menu {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    background-color: var(--primary-color, #0047AB);
-    padding: 10px 0;
-    border-radius: 4px;
+  .map-visualization {
+    padding: 20px;
   }
   
-  .nav-menu.active {
-    display: flex;
-  }
-  
-  .nav-link {
-    padding: 10px 20px;
-    width: 100%;
-  }
-  
-  .nav-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
+  .info-panel {
+    padding: 20px;
   }
 }
 
 /* PC responsiveness */
 @media (min-width: 769px) {
-  .nav-container {
-    padding: 15px 30px;
-  }
-  
-  .nav-title {
-    font-size: 20px;
-  }
-  
-  .nav-menu {
-    gap: 30px;
-  }
-  
-  .nav-link {
-    font-size: 15px;
-    padding: 10px 15px;
-  }
-  
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 120px;
-    background-size: 14px;
-    padding-right: 30px;
-  }
-  
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
-  }
-  
   .page-title {
-    font-size: 28px;
+    font-size: 26px;
   }
   
   .page-subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
   
   .map-visualization {
-    padding: 30px;
+    padding: 28px;
   }
   
   .line-name {
@@ -486,7 +444,7 @@ body {
   }
   
   .line-details h3 {
-    font-size: 18px;
+    font-size: 17px;
   }
   
   .line-details p {
@@ -497,11 +455,7 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .container {
-    padding: 0 15px;
-  }
-  
-  .nav-title {
-    font-size: 16px;
+    padding: 0 12px;
   }
   
   .map-container {
@@ -509,7 +463,7 @@ body {
   }
   
   .page-title {
-    font-size: 20px;
+    font-size: 21px;
   }
   
   .page-subtitle {
@@ -517,34 +471,15 @@ body {
   }
   
   .map-visualization {
-    padding: 15px;
+    padding: 18px;
   }
   
-  .nav-container {
-    padding: 10px 15px;
-    gap: 10px;
+  .info-panel {
+    padding: 18px;
   }
   
-  .nav-link {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-  
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 110px;
-    background-size: 12px;
-    padding-right: 28px;
-  }
-  
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
+  .page-header {
+    margin: 0 8px 0 8px;
   }
 }
 </style>

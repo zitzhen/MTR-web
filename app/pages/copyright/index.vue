@@ -358,13 +358,15 @@ body {
   background-color: #f5f5f5;
 }
 
-
-
-/* Page Header styles */
+/* Page Header styles - iOS 26 */
 .page-header {
-  background-color: white;
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 14px 14px;
+  margin: 0 15px 0 15px;
 }
 
 .container {
@@ -375,14 +377,14 @@ body {
 
 .page-title {
   font-size: 24px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 5px 0;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .page-subtitle {
   font-size: 14px;
-  color: #666;
+  color: var(--ios-text-secondary);
   margin: 0;
 }
 
@@ -392,23 +394,26 @@ body {
 }
 
 .copyright-content {
-  background-color: white;
-  border-radius: 8px;
-  padding: 30px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
+  padding: 32px;
+  box-shadow: var(--ios-card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .section-title {
   font-size: 20px;
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 20px 0;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .license-section, .copyright-notice, .template-info {
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .license-section:last-child,
@@ -422,23 +427,25 @@ body {
 .license-section h3,
 .copyright-notice h3,
 .template-info h3 {
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 15px 0;
   font-size: 18px;
+  font-weight: 600;
 }
 
 .license-section p,
 .copyright-notice p,
 .template-info p {
-  color: #555;
+  color: var(--ios-text-primary);
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
 .license-terms h4 {
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 15px 0 10px 0;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .license-terms ul {
@@ -448,25 +455,25 @@ body {
 
 .license-terms li {
   margin-bottom: 8px;
-  color: #555;
+  color: var(--ios-text-primary);
   line-height: 1.5;
 }
 
 .derivative-warning {
-  background-color: #fff8e1; /* Light yellow background */
-  border-left: 4px solid #ffc107; /* Amber left border */
-  padding: 15px;
+  background-color: rgba(255, 193, 7, 0.15);
+  border-left: 4px solid #FFCC00;
+  padding: 16px;
   margin-top: 15px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .derivative-warning h4 {
-  color: #e65100; /* Dark orange */
+  color: #FF9500;
   margin: 0 0 10px 0;
 }
 
 .derivative-warning p {
-  color: #555;
+  color: var(--ios-text-primary);
   margin: 0;
   line-height: 1.5;
 }
@@ -474,23 +481,24 @@ body {
 .creator-info {
   margin-top: 30px;
   padding-top: 20px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .creator-info h3 {
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-text-primary);
   margin: 0 0 15px 0;
   font-size: 18px;
+  font-weight: 600;
 }
 
 .creator-details p {
   margin: 8px 0;
-  color: #555;
+  color: var(--ios-text-primary);
   line-height: 1.5;
 }
 
 .creator-details a {
-  color: var(--primary-color, #0047AB);
+  color: var(--ios-primary);
   text-decoration: none;
 }
 
@@ -504,107 +512,48 @@ body {
     font-size: 22px;
   }
   
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+  .page-header {
+    margin: 0 10px 0 10px;
   }
   
-  .nav-menu {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    background-color: var(--primary-color, #0047AB);
-    padding: 10px 0;
-    border-radius: 4px;
-  }
-  
-  .nav-menu.active {
-    display: flex;
-  }
-  
-  .nav-link {
-    padding: 10px 20px;
-    width: 100%;
-  }
-  
-  .nav-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
+  .copyright-content {
+    padding: 28px;
   }
 }
 
 /* PC responsiveness */
 @media (min-width: 769px) {
-  .nav-container {
-    padding: 15px 30px;
-  }
-  
-  .nav-title {
-    font-size: 20px;
-  }
-  
-  .nav-menu {
-    gap: 30px;
-  }
-  
-  .nav-link {
-    font-size: 15px;
-    padding: 10px 15px;
-  }
-  
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 120px;
-    background-size: 14px;
-    padding-right: 30px;
-  }
-  
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
-  }
-  
   .page-title {
-    font-size: 28px;
+    font-size: 26px;
   }
   
   .page-subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
   
   .section-title {
-    font-size: 22px;
+    font-size: 21px;
   }
   
   .copyright-content {
-    padding: 40px;
+    padding: 36px;
   }
   
   .license-section h3,
   .copyright-notice h3,
   .template-info h3 {
-    font-size: 20px;
+    font-size: 19px;
   }
 }
 
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .container {
-    padding: 0 15px;
-  }
-  
-  .nav-title {
-    font-size: 16px;
+    padding: 0 12px;
   }
   
   .page-title {
-    font-size: 20px;
+    font-size: 21px;
   }
   
   .page-subtitle {
@@ -612,38 +561,15 @@ body {
   }
   
   .section-title {
-    font-size: 18px;
+    font-size: 19px;
   }
   
   .copyright-content {
-    padding: 20px;
+    padding: 22px;
   }
   
-  .nav-container {
-    padding: 10px 15px;
-    gap: 10px;
-  }
-  
-  .nav-link {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-  
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 110px;
-    background-size: 12px;
-    padding-right: 28px;
-  }
-  
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
+  .page-header {
+    margin: 0 8px 0 8px;
   }
   
   .license-terms h4 {
@@ -651,7 +577,7 @@ body {
   }
   
   .derivative-warning {
-    padding: 10px;
+    padding: 12px;
   }
 }
 </style>

@@ -124,21 +124,22 @@ body {
   background-color: #f5f5f5;
 }
 
-
-
-/* Top Card styles */
+/* Top Card styles - iOS 26 */
 .top-card {
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   margin: 15px;
-  border-radius: 12px;
+  border-radius: var(--ios-card-radius);
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--ios-card-shadow);
 }
 
 .top-card-content {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 22px;
   gap: 20px;
 }
 
@@ -151,7 +152,7 @@ body {
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
+  border: 3px solid var(--ios-primary); /* iOS-style primary color */
 }
 
 .title-container {
@@ -160,70 +161,76 @@ body {
 
 .card-title {
   font-size: 22px;
-  color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
+  color: var(--ios-text-primary);
   margin: 0 0 5px 0;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .card-subtitle {
   font-size: 14px;
-  color: #666;
+  color: var(--ios-text-secondary);
   margin: 0;
 }
 
-/* Notification box styles - Warning Alert */
+/* Notification box styles - iOS 26 */
 .notification-box {
-  background-color: #fff3cd; /* Light yellow background */
-  border: 1px solid #ffeaa7; /* Yellow border */
-  border-left: 4px solid #f39c12; /* Orange left border for emphasis */
-  border-radius: 8px;
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 149, 149, 0.2);
+  border-left: 4px solid #FF3B30;
+  border-radius: var(--ios-card-radius);
   margin: 15px;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  box-shadow: var(--ios-card-shadow);
   display: flex;
   align-items: flex-start;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .notification-header {
-  font-weight: bold;
-  color: #d35400; /* Darker orange */
+  font-weight: 600;
+  color: #FF2D55;
   margin-right: 10px;
   font-size: 16px;
   flex-shrink: 0;
 }
 
 .notification-content {
-  color: #7d6608; /* Darker yellow/brown text */
+  color: var(--ios-text-primary);
   font-size: 14px;
   line-height: 1.5;
   flex: 1;
 }
 
-/* Welcome card styles */
+/* Welcome card styles - iOS 26 */
 .welcome-card {
-  background-color: white;
-  border-radius: 8px;
+  background-color: var(--ios-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--ios-card-radius);
   margin: 15px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 22px;
+  box-shadow: var(--ios-card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .welcome-title {
   font-size: 18px;
-  color: var(--primary-color, #0047AB); /* Dynamic primary color from config with fallback */
-  margin-bottom: 10px;
-  font-weight: bold;
+  color: var(--ios-text-primary);
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
 .welcome-text {
-  color: #333;
+  color: var(--ios-text-primary);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .notification-box {
   margin: 15px;
-  padding: 15px;
+  padding: 16px;
   flex-direction: column;
 }
 
@@ -232,28 +239,29 @@ body {
   margin-right: 0;
 }
 
-
 /* Tablet responsiveness */
 @media (min-width: 481px) and (max-width: 768px) {
-  .mtr-website {
-    max-width: 95%;
+  .top-card-content {
+    padding: 22px;
+    gap: 20px;
   }
   
   .card-title {
-    font-size: 24px;
+    font-size: 23px;
   }
   
   .logo-image {
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
   }
   
   .welcome-text {
     font-size: 15px;
+    line-height: 1.6;
   }
   
   .top-card-content {
-    padding: 20px;
+    padding: 22px;
     gap: 20px;
   }
   
@@ -265,153 +273,40 @@ body {
   .notification-content {
     font-size: 14px;
   }
+  
+  .welcome-card {
+    padding: 24px;
+  }
 }
 
 /* PC responsiveness */
 @media (min-width: 769px) {
-  .mtr-website {
-    max-width: 90%;
-    margin: 20px auto;
-  }
-  
-
-  
-  .nav-container {
-  
-    padding: 15px 30px;
-  
-  }
-  
-  
-  
-  .nav-title {
-  
-    font-size: 20px;
-  
-  }
-  
-  
-  
-  .nav-menu {
-  
-    gap: 30px;
-  
-  }
-  
-  
-  
-  .nav-link {
-  
-    font-size: 15px;
-  
-    padding: 10px 15px;
-  
-  }
-  
-  
-  
-  .lang-dropdown {
-  
-    font-size: 14px;
-  
-    padding: 6px 12px;
-  
-    min-width: 120px;
-  
-    background-size: 14px;
-  
-    padding-right: 30px;
-  
-  }
-  
-  
-  
-  /* PC responsive styles for dropdown options */
-  
-  .lang-dropdown option {
-  
-    color: #333;
-  
-    font-size: 14px;
-  
-  }
-  
-  
-  
   .top-card {
-  
-    margin: 20px 30px;
-  
+    margin: 20px 30px 15px 30px;
   }
-  
-  
   
   .top-card-content {
-  
-    padding: 25px;
-  
+    padding: 28px;
     gap: 25px;
-  
   }
-  
-  
   
   .logo-image {
-  
-    width: 100px;
-  
-    height: 100px;
-  
-    border-width: 4px;
-  
+    width: 90px;
+    height: 90px;
+    border-width: 3px;
   }
-  
-  
   
   .card-title {
-  
     font-size: 26px;
-  
   }
-  
-  
   
   .card-subtitle {
-  
-    font-size: 16px;
-  
-  }  
-  .notification-box {
-    margin: 20px 30px;
-    padding: 20px;
-  }
-  
-  .notification-header {
-    font-size: 18px;
-  }
-  
-  .notification-content {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  .welcome-card {
-    margin: 20px 30px;
-    padding: 30px;
-  }
-  
-  .welcome-title {
-    font-size: 22px;
-  }
-  
-  .welcome-text {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
   }
   
   .notification-box {
     margin: 15px 30px;
-    padding: 18px;
+    padding: 20px;
   }
   
   .notification-header {
@@ -420,61 +315,63 @@ body {
   
   .notification-content {
     font-size: 15px;
-  }
-}
-
-/* Mobile responsiveness - Updated for new navbar */
-@media (max-width: 480px) {
-  .mtr-website {
-    max-width: 100%;
+    line-height: 1.6;
   }
   
-  .nav-title {
-    font-size: 16px;
+  .welcome-card {
+    margin: 15px 30px;
+    padding: 28px;
   }
   
-  .card-title {
+  .welcome-title {
     font-size: 20px;
   }
   
-  .nav-container {
-    padding: 10px 15px;
-    gap: 10px;
+  .welcome-text {
+    font-size: 15px;
+    line-height: 1.6;
   }
-  
-  .nav-link {
-    font-size: 14px;
-    padding: 8px 12px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .card-title {
+    font-size: 21px;
   }
   
   .top-card-content {
-    padding: 15px;
+    padding: 18px;
     gap: 15px;
     flex-direction: column;
     text-align: center;
   }
   
   .logo-image {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
   }
   
   .title-container {
     text-align: center;
   }
   
-  .lang-dropdown {
-    font-size: 14px;
-    padding: 6px 12px;
-    min-width: 110px;
-    background-size: 12px;
-    padding-right: 28px;
+  .notification-box {
+    margin: 12px;
+    padding: 14px;
   }
   
-  /* Mobile responsive styles for dropdown options */
-  .lang-dropdown option {
-    color: #333;
-    font-size: 14px;
+  .welcome-card {
+    margin: 12px;
+    padding: 18px;
+  }
+  
+  .welcome-title {
+    font-size: 17px;
+  }
+  
+  .welcome-text {
+    font-size: 13.5px;
+    line-height: 1.6;
   }
 }
 </style>
