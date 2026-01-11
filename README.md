@@ -6,6 +6,18 @@ MTR-web是一个提供给游玩minecraft玩家，特别是玩Mtr Mod的，给你
 - Nuxt.js 4.2.2
 - Vue 3.5.26
 
+## 样式
+在MTR-Web 中，您可以通过修改`configuration.json`文件来切换当前样式。
+```json
+"style":"1",
+```
+修改此键。
+### 样式表
+|编号|样式|
+|--|--|
+|1|IOS26(轻度液态)|
+|2|Material Design|
+
 ## 调试
 使用以下命令
 ```bash
