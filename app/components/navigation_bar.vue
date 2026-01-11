@@ -3,6 +3,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
+        <img src="/LOGO.jpg" alt="Logo" class="nav-logo-image" />
         <h1 class="nav-title">{{ getLocalizedText('transportationBureau') }}</h1>
       </div>
       <div class="nav-menu" :class="{ active: isMobileMenuOpen }">
@@ -223,6 +224,15 @@ const toggleMobileMenu = () => {
 .nav-logo {
   display: flex;
   align-items: center;
+}
+
+.nav-logo-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-title {
