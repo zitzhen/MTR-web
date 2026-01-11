@@ -1,0 +1,465 @@
+/* Aero Style Global Styles - Windows Vista/7 Inspired */
+
+/* Aero-style color palette */
+:root {
+  --aero-primary: #1ba1e2; /* Windows blue */
+  --aero-primary-light: #66c2ff;
+  --aero-primary-dark: #0a69a8;
+  --aero-secondary: #a4c400; /* Windows green */
+  --aero-secondary-light: #c5d86d;
+  --aero-secondary-dark: #7ca100;
+  --aero-accent: #f0a30a; /* Windows orange */
+  --aero-accent-light: #ffb74d;
+  --aero-accent-dark: #d68f00;
+  --aero-system-gray: #8e8e93;
+  --aero-system-gray-light: #aeaeae;
+  --aero-system-gray-dark: #484848;
+  --aero-system-background: #f0f0f0;
+  --aero-system-background-light: #f9f9f9;
+  --aero-system-background-dark: #e8e8e8;
+  --aero-card-bg: rgba(255, 255, 255, 0.7);
+  --aero-card-bg-light: rgba(255, 255, 255, 0.85);
+  --aero-card-bg-dark: rgba(255, 255, 255, 0.5);
+  --aero-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --aero-card-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --aero-card-shadow-glow: 0 0 20px rgba(27, 161, 226, 0.3);
+  --aero-card-radius: 8px;
+  --aero-card-radius-small: 6px;
+  --aero-card-radius-large: 12px;
+  --aero-text-primary: #333333;
+  --aero-text-secondary: #666666;
+  --aero-text-tertiary: #999999;
+  --aero-text-quaternary: #cccccc;
+  --aero-glass-bg: rgba(255, 255, 255, 0.3);
+  --aero-glass-border: rgba(255, 255, 255, 0.5);
+  --aero-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --aero-glow-color: rgba(27, 161, 226, 0.5);
+}
+
+/* Basic Aero-style typography */
+body {
+  font-family: 'Segoe UI', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #e6f2ff 0%, #f0f7ff 50%, #e6f0ff 100%) !important;
+  color: var(--aero-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  background-attachment: fixed;
+}
+
+/* Aero-style glass effect for containers */
+.top-card,
+.welcome-card,
+.notification-box,
+.page-header,
+.map-visualization,
+.info-panel,
+.station-list,
+.station-detail-panel,
+.schedule-table-container,
+.line-selection,
+.peak-hours-info,
+.copyright-content {
+  background-color: var(--aero-glass-bg);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-radius: var(--aero-card-radius);
+  box-shadow: var(--aero-glass-shadow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--aero-glass-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle glow effect */
+.top-card::before,
+.welcome-card::before,
+.info-panel::before,
+.station-detail-panel::before,
+.schedule-table-container::before,
+.copyright-content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: calc(var(--aero-card-radius) + 2px);
+  background: linear-gradient(45deg, 
+    rgba(27, 161, 226, 0.3), 
+    rgba(164, 196, 0, 0.3), 
+    rgba(240, 163, 10, 0.3),
+    rgba(27, 161, 226, 0.3));
+  z-index: -1;
+  animation: aero-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes aero-glow {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.top-card:hover,
+.welcome-card:hover,
+.info-panel:hover,
+.station-detail-panel:hover,
+.schedule-table-container:hover,
+.copyright-content:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px) saturate(160%);
+  -webkit-backdrop-filter: blur(25px) saturate(160%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Enhanced Aero glass effect for important elements */
+.top-card,
+.welcome-card,
+.info-panel,
+.station-detail-panel,
+.schedule-table-container,
+.copyright-content {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: var(--aero-glass-shadow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--aero-glass-border);
+  transition: all 0.3s ease;
+}
+
+/* Aero-style buttons */
+.line-btn,
+.close-btn,
+.lang-dropdown {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(240, 240, 240, 0.7) 100%);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 6px;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  color: var(--aero-text-primary);
+}
+
+.line-btn:hover,
+.close-btn:hover,
+.lang-dropdown:hover {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.9) 100%);
+  border-color: rgba(100, 100, 100, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+.line-btn.active {
+  background: linear-gradient(to bottom, var(--aero-primary) 0%, var(--aero-primary-dark) 100%);
+  color: white;
+  border-color: var(--aero-primary-dark);
+  box-shadow: 0 2px 5px rgba(27, 161, 226, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Aero-style input fields */
+.search-input {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(240, 240, 240, 0.7) 100%);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1),
+              0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--aero-primary);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1),
+              0 0 0 3px rgba(27, 161, 226, 0.3);
+}
+
+/* Aero-style select dropdown */
+.lang-dropdown {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(240, 240, 240, 0.7) 100%);
+  color: var(--aero-text-primary);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 6px;
+  padding: 6px 30px 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='rgba(51, 51, 51, 1)'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  min-width: 120px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Aero-style table header */
+.table-header {
+  background: linear-gradient(to bottom, rgba(27, 161, 226, 0.2) 0%, rgba(27, 161, 226, 0.1) 100%);
+  position: sticky;
+  left: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Aero-style station cards - Glass effect */
+.station-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(245, 245, 245, 0.5) 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: var(--aero-card-radius-small);
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.station-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(245, 245, 245, 0.7) 100%);
+  border-color: var(--aero-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.station-card.selected {
+  background: linear-gradient(135deg, rgba(27, 161, 226, 0.3) 0%, rgba(27, 161, 226, 0.2) 100%);
+  border-color: var(--aero-primary);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Aero-style navigation links */
+.nav-link {
+  color: rgba(51, 51, 51, 0.9);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--aero-primary);
+}
+
+.nav-link.nuxt-link-exact-active {
+  background: linear-gradient(to bottom, var(--aero-primary) 0%, var(--aero-primary-dark) 100%);
+  color: white;
+  font-weight: 500;
+  border: 1px solid rgba(27, 120, 200, 0.8);
+  box-shadow: 0 2px 5px rgba(27, 161, 226, 0.4);
+}
+
+/* Aero-style section titles */
+.section-title,
+.page-title {
+  font-weight: 600;
+  color: var(--aero-text-primary);
+  position: relative;
+}
+
+.section-title::after,
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(to right, var(--aero-primary), transparent);
+  border-radius: 1px;
+}
+
+/* Aero-style notification box - Glass effect */
+.notification-box {
+  background: linear-gradient(135deg, rgba(255, 240, 140, 0.3) 0%, rgba(255, 230, 100, 0.2) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 200, 0, 0.3);
+  border-left: 4px solid #f0a30a;
+  border-radius: var(--aero-card-radius);
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: var(--aero-glass-shadow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.notification-box:hover {
+  background: linear-gradient(135deg, rgba(255, 240, 140, 0.4) 0%, rgba(255, 230, 100, 0.3) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.notification-header {
+  font-weight: 600;
+  color: var(--aero-accent-dark);
+  margin-right: 10px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.notification-content {
+  color: var(--aero-text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* Aero-style line badges */
+.line-badge {
+  background: linear-gradient(to bottom, #ccc 0%, #aaa 100%);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+  min-width: 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Aero-style derivative warning */
+.derivative-warning {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 170, 0, 0.15) 100%);
+  border-left: 4px solid #f0a30a;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.derivative-warning h4 {
+  color: var(--aero-accent-dark);
+  margin: 0 0 10px 0;
+}
+
+/* Aero-style scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(200, 200, 200, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--aero-primary-light), var(--aero-primary));
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--aero-primary), var(--aero-primary-dark));
+}
+
+/* Aero-style responsive adjustments */
+@media (max-width: 768px) {
+  .top-card,
+  .welcome-card,
+  .notification-box,
+  .map-visualization,
+  .info-panel,
+  .station-list,
+  .station-detail-panel,
+  .schedule-table-container,
+  .line-selection,
+  .peak-hours-info,
+  .copyright-content {
+    border-radius: var(--aero-card-radius-large);
+    margin: 10px;
+  }
+  
+  .navbar {
+    border-radius: 0 0 24px 24px;
+    margin: 0 10px;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  /* Adjust glass effect for mobile */
+  .top-card::before,
+  .welcome-card::before,
+  .info-panel::before,
+  .station-detail-panel::before,
+  .schedule-table-container::before,
+  .copyright-content::before {
+    display: none; /* Disable complex effects on mobile for performance */
+  }
+}
+
+/* Aero-style focus states */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(27, 161, 226, 0.3);
+}
+
+/* Aero-style glow effect for active elements */
+*:focus {
+  position: relative;
+}
+
+*:focus::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: inherit;
+  border: 2px solid var(--aero-glow-color);
+  pointer-events: none;
+  animation: aero-pulse 1.5s infinite;
+}
+
+@keyframes aero-pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}

@@ -1,6 +1,7 @@
 {
     "city_name": "your_city_name",
     "color": "#0047AB",
+    "style":"3",
     "page_titles": {
         "home": {
             "简体中文": "首页",
