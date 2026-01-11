@@ -1,6 +1,44 @@
 {
     "city_name": "your_city_name",
     "color": "#0047AB",
+    "page_titles": {
+        "home": {
+            "简体中文": "首页",
+            "繁体中文": "首頁",
+            "English": "Home",
+            "日本語": "ホーム"
+        },
+        "map": {
+            "简体中文": "地铁线路图",
+            "繁体中文": "地鐵路線圖",
+            "English": "Subway Map",
+            "日本語": "地下鉄路線図"
+        },
+        "panel": {
+            "简体中文": "系统监控面板",
+            "繁体中文": "系統監控面板",
+            "English": "System Panel",
+            "日本語": "システムパネル"
+        },
+        "station_info": {
+            "简体中文": "站点信息",
+            "繁体中文": "站點資訊",
+            "English": "Station Information",
+            "日本語": "駅情報"
+        },
+        "timetable": {
+            "简体中文": "时刻表",
+            "繁体中文": "時刻表",
+            "English": "Timetable",
+            "日本語": "時刻表"
+        },
+        "copyright": {
+            "简体中文": "版权声明",
+            "繁体中文": "版權聲明",
+            "English": "Copyright",
+            "日本語": "著作権"
+        }
+    },
     "mtr_lines": [
         {
             "name": "red_line",

@@ -117,6 +117,14 @@
 import { ref, computed } from 'vue'
 import { useLanguageStore } from '~~/stores/language'
 import { storeToRefs } from 'pinia'
+import { usePageTitle } from '~/composables/usePageTitle'
+
+// 设置动态页面标题
+usePageTitle({
+  key: 'station_info',
+  defaultTitle: '站点信息',
+  suffix: 'MTR'
+})
 
 const languageStore = useLanguageStore()
 const { currentLanguage } = storeToRefs(languageStore)

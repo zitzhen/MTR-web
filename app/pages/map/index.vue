@@ -57,6 +57,14 @@
 <script setup>
 import { useLanguageStore } from '~~/stores/language'
 import { storeToRefs } from 'pinia'
+import { usePageTitle } from '~/composables/usePageTitle'
+
+// 设置动态页面标题
+usePageTitle({
+  key: 'map',
+  defaultTitle: '地铁线路图',
+  suffix: 'MTR'
+})
 
 const languageStore = useLanguageStore()
 const { currentLanguage } = storeToRefs(languageStore)

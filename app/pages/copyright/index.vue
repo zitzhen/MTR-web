@@ -75,6 +75,14 @@
 import { computed } from 'vue'
 import { useLanguageStore } from '~~/stores/language'
 import { storeToRefs } from 'pinia'
+import { usePageTitle } from '~/composables/usePageTitle'
+
+// 设置动态页面标题
+usePageTitle({
+  key: 'copyright',
+  defaultTitle: '版权声明',
+  suffix: 'MTR'
+})
 
 const languageStore = useLanguageStore()
 const { currentLanguage } = storeToRefs(languageStore)
