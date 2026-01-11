@@ -115,6 +115,11 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useLanguageStore } from '~~/stores/language'
+import { storeToRefs } from 'pinia'
+
+const languageStore = useLanguageStore()
+const { currentLanguage } = storeToRefs(languageStore)
 
 // Use useAsyncData with correct path handling for server-side
 const { data: configData } = await useAsyncData('config', async () => {
@@ -146,25 +151,8 @@ const { data: configData } = await useAsyncData('config', async () => {
 const cityName = configData.value?.city_name || 'Error'
 const color = configData.value?.color || '#0047AB'
 
-const currentLanguage = ref('简体中文')
 const searchQuery = ref('')
 const selectedStation = ref(null)
-
-const changeLanguage = (langCode) => {
-  currentLanguage.value = langCode
-  // Reset selected station when language changes to refresh text
-  if (selectedStation.value) {
-    const stationId = selectedStation.value.id
-    selectedStation.value = null
-    // Small delay to allow the UI to update before re-selecting
-    setTimeout(() => {
-      const station = allStations.value.find(s => s.id === stationId)
-      if (station) {
-        selectedStation.value = station
-      }
-    }, 0)
-  }
-}
 
 // Get all stations from the configuration
 const allStations = computed(() => {
@@ -173,7 +161,7 @@ const allStations = computed(() => {
     
     configData.value.mtr_lines.forEach(line => {
       line.stations.forEach(station => {
-        const stationName = station.name[currentLanguage.value] || station.name['简体中文']
+        const stationName = station.name[languageStore.currentLanguage] || station.name['简体中文']
         
         if (!stationsMap.has(stationName)) {
           stationsMap.set(stationName, {
@@ -208,7 +196,7 @@ const filteredStations = computed(() => {
   
   const query = searchQuery.value.toLowerCase()
   return allStations.value.filter(station => {
-    const name = (station.name[currentLanguage.value] || station.name['简体中文']).toLowerCase()
+    const name = (station.name[languageStore.currentLanguage] || station.name['简体中文']).toLowerCase()
     return name.includes(query)
   })
 })
@@ -234,7 +222,7 @@ const getLineName = (lineName) => {
   if (configData.value?.mtr_lines) {
     const line = configData.value.mtr_lines.find(l => l.name === lineName)
     if (line) {
-      return line.localizedName[currentLanguage.value] || line.localizedName['简体中文']
+      return line.localizedName[languageStore.currentLanguage] || line.localizedName['简体中文']
     }
   }
   return lineName
@@ -311,8 +299,8 @@ const getLocalizedText = (key) => {
     }
   }
   
-  return localizedText[key] && localizedText[key][currentLanguage.value] 
-    ? localizedText[key][currentLanguage.value] 
+  return localizedText[key] && localizedText[key][languageStore.currentLanguage] 
+    ? localizedText[key][languageStore.currentLanguage] 
     : localizedText[key] && localizedText[key]['简体中文'] 
       ? localizedText[key]['简体中文'] 
       : key

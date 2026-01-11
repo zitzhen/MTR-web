@@ -108,6 +108,11 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useLanguageStore } from '~~/stores/language'
+import { storeToRefs } from 'pinia'
+
+const languageStore = useLanguageStore()
+const { currentLanguage } = storeToRefs(languageStore)
 
 // Use useAsyncData with correct path handling for server-side
 const { data: configData } = await useAsyncData('config', async () => {
@@ -139,19 +144,14 @@ const { data: configData } = await useAsyncData('config', async () => {
 const cityName = configData.value?.city_name || 'Error'
 const color = configData.value?.color || '#0047AB'
 
-const currentLanguage = ref('简体中文')
 const selectedLine = ref('red_line') // Default to red line
-
-const changeLanguage = (langCode) => {
-  currentLanguage.value = langCode
-}
 
 // Get MTR lines from configuration
 const mtrLines = computed(() => {
   if (configData.value?.mtr_lines) {
     return configData.value.mtr_lines.map(line => ({
       name: line.name,
-      localizedName: line.localizedName[currentLanguage.value] || line.localizedName['简体中文'],
+      localizedName: line.localizedName[languageStore.currentLanguage] || line.localizedName['简体中文'],
       color: line.color
     }))
   }
@@ -190,7 +190,7 @@ const getLineName = (lineName) => {
   if (configData.value?.mtr_lines) {
     const line = configData.value.mtr_lines.find(l => l.name === lineName)
     if (line) {
-      return line.localizedName[currentLanguage.value] || line.localizedName['简体中文']
+      return line.localizedName[languageStore.currentLanguage] || line.localizedName['简体中文']
     }
   }
   return lineName
@@ -308,8 +308,8 @@ const getLocalizedText = (key) => {
     }
   }
   
-  return localizedText[key] && localizedText[key][currentLanguage.value] 
-    ? localizedText[key][currentLanguage.value] 
+  return localizedText[key] && localizedText[key][languageStore.currentLanguage] 
+    ? localizedText[key][languageStore.currentLanguage] 
     : localizedText[key] && localizedText[key]['简体中文'] 
       ? localizedText[key]['简体中文'] 
       : key

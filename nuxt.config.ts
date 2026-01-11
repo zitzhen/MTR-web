@@ -36,6 +36,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   /**
+   * 添加 Pinia 状态管理
+   */
+  modules: [
+    '@pinia/nuxt'
+  ],
+
+  /**
    * Nuxt Dev Server 配置
    */
   devServer: {

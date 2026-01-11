@@ -30,7 +30,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { useLanguageStore } from '~~/stores/language'
+import { storeToRefs } from 'pinia'
+
+const languageStore = useLanguageStore()
+const { currentLanguage } = storeToRefs(languageStore)
 
 // Use useAsyncData with correct path handling for server-side
 const { data: configData } = await useAsyncData('config', async () => {
@@ -61,12 +65,6 @@ const { data: configData } = await useAsyncData('config', async () => {
 
 const cityName = configData.value?.city_name || 'Error'
 const color = configData.value?.color || '#0047AB'
-
-const currentLanguage = ref('简体中文')
-
-const changeLanguage = (langCode) => {
-  currentLanguage.value = langCode
-}
 
 // Function to get localized text based on current language
 const getLocalizedText = (key) => {
@@ -103,8 +101,8 @@ const getLocalizedText = (key) => {
     }
   }
   
-  return localizedText[key] && localizedText[key][currentLanguage.value] 
-    ? localizedText[key][currentLanguage.value] 
+  return localizedText[key] && localizedText[key][languageStore.currentLanguage] 
+    ? localizedText[key][languageStore.currentLanguage] 
     : localizedText[key] && localizedText[key]['简体中文'] 
       ? localizedText[key]['简体中文'] 
       : key

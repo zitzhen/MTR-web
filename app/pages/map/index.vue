@@ -55,7 +55,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { useLanguageStore } from '~~/stores/language'
+import { storeToRefs } from 'pinia'
+
+const languageStore = useLanguageStore()
+const { currentLanguage } = storeToRefs(languageStore)
 
 // Use useAsyncData with correct path handling for server-side
 const { data: configData } = await useAsyncData('config', async () => {
@@ -87,12 +91,6 @@ const { data: configData } = await useAsyncData('config', async () => {
 const cityName = configData.value?.city_name || 'Error'
 const color = configData.value?.color || '#0047AB'
 
-const currentLanguage = ref('简体中文')
-
-const changeLanguage = (langCode) => {
-  currentLanguage.value = langCode
-}
-
 // Function to get line position based on its index
 const getLinePosition = (lineName) => {
   const lineOrder = ['red_line', 'blue_line', 'green_line'];
@@ -123,7 +121,7 @@ const mtrLines = computed(() => {
   if (configData.value?.mtr_lines) {
     return configData.value.mtr_lines.map(line => ({
       name: line.name,
-      localizedName: line.localizedName[currentLanguage.value] || line.localizedName['简体中文'],
+      localizedName: line.localizedName[languageStore.currentLanguage] || line.localizedName['简体中文'],
       color: line.color,
       stations: line.stations,
       operatingHours: line.operating_hours
@@ -136,7 +134,7 @@ const mtrLines = computed(() => {
 const redLineStations = computed(() => {
   const line = mtrLines.value.find(l => l.name === 'red_line')
   if (line) {
-    return line.stations.map(station => station.name[currentLanguage.value] || station.name['简体中文'])
+    return line.stations.map(station => station.name[languageStore.currentLanguage] || station.name['简体中文'])
   }
   return []
 })
@@ -144,7 +142,7 @@ const redLineStations = computed(() => {
 const blueLineStations = computed(() => {
   const line = mtrLines.value.find(l => l.name === 'blue_line')
   if (line) {
-    return line.stations.map(station => station.name[currentLanguage.value] || station.name['简体中文'])
+    return line.stations.map(station => station.name[languageStore.currentLanguage] || station.name['简体中文'])
   }
   return []
 })
@@ -152,7 +150,7 @@ const blueLineStations = computed(() => {
 const greenLineStations = computed(() => {
   const line = mtrLines.value.find(l => l.name === 'green_line')
   if (line) {
-    return line.stations.map(station => station.name[currentLanguage.value] || station.name['简体中文'])
+    return line.stations.map(station => station.name[languageStore.currentLanguage] || station.name['简体中文'])
   }
   return []
 })
@@ -193,8 +191,8 @@ const getLocalizedText = (key) => {
     }
   }
   
-  return localizedText[key] && localizedText[key][currentLanguage.value] 
-    ? localizedText[key][currentLanguage.value] 
+  return localizedText[key] && localizedText[key][languageStore.currentLanguage] 
+    ? localizedText[key][languageStore.currentLanguage] 
     : localizedText[key] && localizedText[key]['简体中文'] 
       ? localizedText[key]['简体中文'] 
       : key

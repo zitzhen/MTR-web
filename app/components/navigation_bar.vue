@@ -40,7 +40,10 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
+import { useLanguageStore } from '~~/stores/language'
+
+const languageStore = useLanguageStore()
 
 const isMobileMenuOpen = ref(false);
 
@@ -94,12 +97,13 @@ const { data: configData } = await useAsyncData('config', async () => {
 const cityName = configData.value?.city_name || 'Error'
 const color = configData.value?.color || '#0047AB'
 
-const currentLanguage = ref('简体中文')
+// 初始化语言状态
+onMounted(() => {
+  languageStore.initLanguage()
+})
 
 const changeLanguage = (langCode) => {
-  currentLanguage.value = langCode
-  // Here you could add logic to change the language of the entire page
-  // For now, we're just updating the current language value
+  languageStore.setLanguage(langCode)
 }
 
 // Function to get localized text based on current language
@@ -167,8 +171,8 @@ const getLocalizedText = (key) => {
     }
   }
   
-  return localizedText[key] && localizedText[key][currentLanguage.value] 
-    ? localizedText[key][currentLanguage.value] 
+  return localizedText[key] && localizedText[key][languageStore.currentLanguage] 
+    ? localizedText[key][languageStore.currentLanguage] 
     : localizedText[key] && localizedText[key]['简体中文'] 
       ? localizedText[key]['简体中文'] 
       : key
