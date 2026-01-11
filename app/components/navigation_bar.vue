@@ -42,8 +42,10 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { useLanguageStore } from '~~/stores/language'
+import { storeToRefs } from 'pinia'
 
 const languageStore = useLanguageStore()
+const { currentLanguage } = storeToRefs(languageStore)
 
 const isMobileMenuOpen = ref(false);
 
