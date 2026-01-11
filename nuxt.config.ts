@@ -43,6 +43,13 @@ export default defineNuxtConfig({
   ],
 
   /**
+   * 全局CSS配置 - 确保CSS在页面加载时立即可用
+   */
+  css: [
+    '~/assets/css/ios26-style.css'
+  ],
+
+  /**
    * Nuxt Dev Server 配置
    */
   devServer: {
