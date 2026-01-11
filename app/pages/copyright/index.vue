@@ -77,10 +77,12 @@ import { useLanguageStore } from '~~/stores/language'
 import { storeToRefs } from 'pinia'
 import { usePageTitle } from '~/composables/usePageTitle'
 
-// 设置动态页面标题
+// 设置动态页面标题和描述
 usePageTitle({
   key: 'copyright',
+  descriptionKey: 'copyright',
   defaultTitle: '版权声明',
+  defaultDescription: 'MTR交通局网站的版权声明和许可证信息',
   suffix: 'MTR'
 })
 

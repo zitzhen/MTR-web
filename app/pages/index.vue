@@ -34,10 +34,12 @@ import { useLanguageStore } from '~~/stores/language'
 import { storeToRefs } from 'pinia'
 import { usePageTitle } from '~/composables/usePageTitle'
 
-// 设置动态页面标题
+// 设置动态页面标题和描述
 usePageTitle({
   key: 'home',
+  descriptionKey: 'home',
   defaultTitle: '首页',
+  defaultDescription: '欢迎访问MTR交通局官方网站',
   suffix: 'MTR'
 })
 

@@ -39,6 +39,44 @@
             "日本語": "著作権"
         }
     },
+    "page_descriptions": {
+        "home": {
+            "简体中文": "欢迎访问${city_name}交通局官方网站。本网站为您提供${city_name}地铁线路的各类信息。",
+            "繁体中文": "歡迎訪問${city_name}交通局官方網站。本網站為您提供${city_name}地鐵線路的各類資訊。",
+            "English": "Welcome to the official ${city_name} Transportation Bureau website. This site provides you with various information about ${city_name} subway lines.",
+            "日本語": "${city_name}交通局公式サイトへようこそ。当サイトでは、${city_name}地下鉄の各種情報を提供しています。"
+        },
+        "map": {
+            "简体中文": "查看并探索${city_name}的所有地铁线路和站点地图。",
+            "繁体中文": "查看並探索${city_name}的所有地鐵路線和站點地圖。",
+            "English": "View and explore all subway lines and station maps in ${city_name}.",
+            "日本語": "${city_name}のすべての地下鉄路線と駅のマップを表示・探索します。"
+        },
+        "panel": {
+            "简体中文": "实时监控${city_name}地铁系统的运行状态，包括列车、车站和线路信息。",
+            "繁体中文": "實時監控${city_name}地鐵系統的運行狀態，包括列車、車站和線路資訊。",
+            "English": "Real-time monitoring of the ${city_name} subway system status, including train, station, and line information.",
+            "日本語": "${city_name}地下鉄システムのリアルタイム監視、列車・駅・路線情報の確認。"
+        },
+        "station_info": {
+            "简体中文": "查看${city_name}地铁各站点的详细信息，包括地址、设施和服务。",
+            "繁体中文": "查看${city_name}地鐵各站點的詳細資訊，包括地址、設施和服務。",
+            "English": "View detailed information about subway stations in ${city_name}, including addresses, facilities, and services.",
+            "日本語": "${city_name}地下鉄各駅の詳細情報（住所・設備・サービス）を表示します。"
+        },
+        "timetable": {
+            "简体中文": "查看${city_name}地铁各线路的运营时刻表和高峰时段信息。",
+            "繁体中文": "查看${city_name}地鐵各路線的營運時刻表和高峰時段資訊。",
+            "English": "View operation schedules and peak hours information for subway lines in ${city_name}.",
+            "日本語": "${city_name}地下鉄各路線の運行時刻表とラッシュアワー情報を表示します。"
+        },
+        "copyright": {
+            "简体中文": "${city_name}交通局网站的版权声明和许可证信息。",
+            "繁体中文": "${city_name}交通局網站的版權聲明和許可證資訊。",
+            "English": "Copyright notice and license information for the ${city_name} Transportation Bureau website.",
+            "日本語": "${city_name}交通局ウェブサイトの著作権表示およびライセンス情報。"
+        }
+    },
     "mtr_lines": [
         {
             "name": "red_line",

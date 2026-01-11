@@ -148,10 +148,12 @@ import { onMounted, ref, watch } from 'vue'
 import { useMtrApi, useMtrServerStatus } from '../composables/mtrApi'
 import { usePageTitle } from '~/composables/usePageTitle'
 
-// 设置动态页面标题
+// 设置动态页面标题和描述
 usePageTitle({
   key: 'panel',
+  descriptionKey: 'panel',
   defaultTitle: '系统监控面板',
+  defaultDescription: '实时监控MTR地铁系统的运行状态',
   suffix: 'MTR'
 })
 

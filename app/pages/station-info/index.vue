@@ -119,10 +119,12 @@ import { useLanguageStore } from '~~/stores/language'
 import { storeToRefs } from 'pinia'
 import { usePageTitle } from '~/composables/usePageTitle'
 
-// 设置动态页面标题
+// 设置动态页面标题和描述
 usePageTitle({
   key: 'station_info',
+  descriptionKey: 'station_info',
   defaultTitle: '站点信息',
+  defaultDescription: '查看MTR地铁各站点的详细信息',
   suffix: 'MTR'
 })
 

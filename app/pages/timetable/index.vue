@@ -112,10 +112,12 @@ import { useLanguageStore } from '~~/stores/language'
 import { storeToRefs } from 'pinia'
 import { usePageTitle } from '~/composables/usePageTitle'
 
-// 设置动态页面标题
+// 设置动态页面标题和描述
 usePageTitle({
   key: 'timetable',
+  descriptionKey: 'timetable',
   defaultTitle: '时刻表',
+  defaultDescription: '查看MTR地铁各线路的运营时刻表',
   suffix: 'MTR'
 })
 

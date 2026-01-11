@@ -59,10 +59,12 @@ import { useLanguageStore } from '~~/stores/language'
 import { storeToRefs } from 'pinia'
 import { usePageTitle } from '~/composables/usePageTitle'
 
-// 设置动态页面标题
+// 设置动态页面标题和描述
 usePageTitle({
   key: 'map',
+  descriptionKey: 'map',
   defaultTitle: '地铁线路图',
+  defaultDescription: '查看并探索MTR的所有地铁线路和站点地图',
   suffix: 'MTR'
 })
 
