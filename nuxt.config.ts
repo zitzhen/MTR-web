@@ -42,6 +42,18 @@ export default defineNuxtConfig({
     '@pinia/nuxt'
   ],
 
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/jpeg',
+          href: '/LOGO.jpg'
+        }
+      ]
+    }
+  },
+
   /**
    * 全局CSS配置 - 确保CSS在页面加载时立即可用
    */
