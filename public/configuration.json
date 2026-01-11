@@ -1,6 +1,7 @@
 {
     "city_name": "your_city_name",
     "color": "#0047AB",
+    "style":"1",
     "mtr_lines": [
         {
             "name": "red_line",
