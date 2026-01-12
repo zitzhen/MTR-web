@@ -124,26 +124,50 @@ usePageTitle({
 const languageStore = useLanguageStore()
 const { currentLanguage } = storeToRefs(languageStore)
 
-// Use useAsyncData with correct path handling for server-side
+// Use useAsyncData with improved path handling for both server and client
 const { data: configData } = await useAsyncData('config', async () => {
   try {
-    // For server-side, we need to fetch from the public directory directly
     if (process.server) {
-      // Running on server - access file directly
-      const fs = await import('fs')
-      const path = await import('path')
-      const configPath = path.resolve(process.cwd(), 'public', 'configuration.json')
-      if (fs.existsSync(configPath)) {
-        const configFile = fs.readFileSync(configPath, 'utf-8')
-        return JSON.parse(configFile)
-      } else {
-        console.error('Configuration file does not exist at:', configPath)
-        return { city_name: 'Error', color: '#0047AB' }
+      // On server-side, use a more robust approach for file access
+      try {
+        const fs = await import('fs')
+        const path = await import('path')
+        // Use a more reliable way to locate the configuration file
+        const configPath = path.join(process.cwd(), 'public', 'configuration.json')
+        if (fs.existsSync(configPath)) {
+          const configFile = fs.readFileSync(configPath, 'utf-8')
+          return JSON.parse(configFile)
+        } else {
+          // For Nuxt applications, public assets might be in a different location in production
+          const altConfigPath = path.join(process.cwd(), '.output/public/configuration.json')
+          if (fs.existsSync(altConfigPath)) {
+            const configFile = fs.readFileSync(altConfigPath, 'utf-8')
+            return JSON.parse(configFile)
+          } else {
+            console.error('Configuration file does not exist at:', configPath, 'or', altConfigPath)
+            return { city_name: 'Error', color: '#0047AB' }
+          }
+        }
+      } catch (fsError) {
+        console.warn('Server-side file access failed, falling back to fetch:', fsError)
+        // Fallback to fetch on server if file access fails
+        try {
+          const config = await $fetch('/configuration.json')
+          return config
+        } catch (fetchError) {
+          console.error('Server fetch also failed:', fetchError)
+          return { city_name: 'Error', color: '#0047AB' }
+        }
       }
     } else {
-      // Running on client - use $fetch
-      const config = await $fetch('/configuration.json')
-      return config
+      // On client-side, use fetch
+      try {
+        const config = await $fetch('/configuration.json')
+        return config
+      } catch (error) {
+        console.error('Failed to load configuration:', error)
+        return { city_name: 'Error', color: '#0047AB' }
+      }
     }
   } catch (error) {
     console.error('Failed to load configuration:', error)
