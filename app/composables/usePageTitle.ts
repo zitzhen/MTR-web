@@ -2,6 +2,7 @@ import { useHead, useAsyncData } from '#imports'
 import { useLanguageStore } from '../stores/language'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import { useConfig } from '~/composables/useConfig'
 
 interface PageTitleConfig {
   key?: string; // 使用配置文件中的键来获取标题
@@ -19,56 +20,8 @@ export const usePageTitle = (config: PageTitleConfig) => {
   const languageStore = useLanguageStore()
   const { currentLanguage } = storeToRefs(languageStore)
 
-  // 使用 useAsyncData 获取配置数据
-  const { data: configData } = useAsyncData('config', async () => {
-    try {
-      if (process.server) {
-        // On server-side, use a more robust approach for file access
-        try {
-          const fs = await import('fs')
-          const path = await import('path')
-          // Use a more reliable way to locate the configuration file
-          const configPath = path.join(process.cwd(), 'public', 'configuration.json')
-          if (fs.existsSync(configPath)) {
-            const configFile = fs.readFileSync(configPath, 'utf-8')
-            return JSON.parse(configFile)
-          } else {
-            // For Nuxt applications, public assets might be in a different location in production
-            const altConfigPath = path.join(process.cwd(), '.output/public/configuration.json')
-            if (fs.existsSync(altConfigPath)) {
-              const configFile = fs.readFileSync(altConfigPath, 'utf-8')
-              return JSON.parse(configFile)
-            } else {
-              console.error('Configuration file does not exist at:', configPath, 'or', altConfigPath)
-              return { city_name: 'MTR', color: '#0047AB' }
-            }
-          }
-        } catch (fsError) {
-          console.warn('Server-side file access failed, falling back to fetch:', fsError)
-          // Fallback to fetch on server if file access fails
-          try {
-            const config = await $fetch('/configuration.json')
-            return config
-          } catch (fetchError) {
-            console.error('Server fetch also failed:', fetchError)
-            return { city_name: 'MTR', color: '#0047AB' }
-          }
-        }
-      } else {
-        // On client-side, use fetch
-        try {
-          const config = await $fetch('/configuration.json')
-          return config
-        } catch (error) {
-          console.error('Failed to load configuration:', error)
-          return { city_name: 'MTR', color: '#0047AB' }
-        }
-      }
-    } catch (error) {
-      console.error('加载配置失败:', error)
-      return { city_name: 'MTR', color: '#0047AB' }
-    }
-  })
+  // 使用新的配置获取 composable
+  const { data: configData } = useConfig()
 
   // 构建标题
   const buildTitle = () => {
