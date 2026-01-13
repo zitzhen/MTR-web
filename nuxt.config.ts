@@ -3,31 +3,44 @@ import { existsSync } from 'fs'
 import { resolve } from 'path'
 
 /**
+ * 根据运行环境决定是否使用 SSL
+ * 在 Cloudflare 环境中，不需要本地 SSL 证书
+ */
+const RUNTIME_ENV = process.env.RUNTIME_ENV || 'nodejs'
+
+/**
  * 仅允许用于开发调试的域名
  */
 const DEV_DOMAIN = 'mtr-web.test'
 
-/**
- * SSL 证书路径（必须是字符串路径）
- */
-const SSL_KEY_PATH = resolve('./server.key')
-const SSL_CERT_PATH = resolve('./server.crt')
+let httpsOptions = false
 
-/**
- * HTTPS 配置
- * - 证书存在 → HTTPS
- * - 证书不存在 → 自动回退 HTTP
- */
-const httpsOptions =
-  existsSync(SSL_KEY_PATH) && existsSync(SSL_CERT_PATH)
-    ? {
-        key: SSL_KEY_PATH,
-        cert: SSL_CERT_PATH
-      }
-    : false
+// 只在 Node.js 环境下检查 SSL 证书
+if (RUNTIME_ENV === 'nodejs') {
+  /**
+   * SSL 证书路径（必须是字符串路径）
+   */
+  const SSL_KEY_PATH = resolve('./server.key')
+  const SSL_CERT_PATH = resolve('./server.crt')
 
-if (!httpsOptions) {
-  console.warn('[devServer] 未检测到 SSL 证书，已自动使用 HTTP')
+  /**
+   * HTTPS 配置
+   * - 证书存在 → HTTPS
+   * - 证书不存在 → 自动回退 HTTP
+   */
+  httpsOptions =
+    existsSync(SSL_KEY_PATH) && existsSync(SSL_CERT_PATH)
+      ? {
+          key: SSL_KEY_PATH,
+          cert: SSL_CERT_PATH
+        }
+      : false
+
+  if (!httpsOptions) {
+    console.warn('[devServer] 未检测到 SSL 证书，已自动使用 HTTP')
+  }
+} else {
+  console.log(`[devServer] 运行环境: ${RUNTIME_ENV}, 跳过 SSL 证书检查`)
 }
 
 export default defineNuxtConfig({
